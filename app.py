@@ -6,6 +6,10 @@ PORT = int(os.environ.get("PORT", 8000))
 
 Handler = SimpleHTTPRequestHandler
 
+def app(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    return [b""]
+
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("Serving at port", PORT)
     httpd.serve_forever()
+

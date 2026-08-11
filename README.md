@@ -12,7 +12,6 @@ Professional portfolio website for Amari James. Exhibits educational background,
 ### Authors
 * Amari James
 * @redthemadhacker
-
 ### Version History
 * 0.1 
     - Initial release 

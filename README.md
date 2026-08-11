@@ -19,22 +19,5 @@ Professional portfolio website for Amari James. Exhibits educational background,
 * 0.1 
     - Initial release 
 
-
-
-This is normal text. You can make it **bold** or *italic*.
-
-### Prerequisites
-* Bullet point item 1
-* Bullet point item 2
-
-### Installation Steps
-1. Numbered item 1
-2. Numbered item 2
-
-### Code Example
-\`\`\`bash
-npm install
-npm run dev
-\`\`\`
-
-[Link Text](https://example.com)
+### Acknowledgements 
+* Inspirations, code snippets, etc. 

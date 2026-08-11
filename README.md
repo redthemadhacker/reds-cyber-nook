@@ -5,12 +5,10 @@ Professional portfolio website for Amari James. Exhibits educational background,
 ### Dependencies 
 * Linux Ubuntu 24.10, Github, VSCode, Heroki
 * Apps to make stuff move, buttons click, etc
-### Installing
-* How/ where to download
 ### Executing
-* Step-by-step how to run
+* Open in  [https://reds-cyber-nook-a2ae0b8c4979.herokuapp.com/].
 ### Help
-* Common problems/ issues
+* Deploy: Issues deploying with Heroku due to site being written in HTML while Heroku automatically looks for Node.js. Added app.py, requirements.txt and Procfile with Python, Flask, and Gunicorn. 
 ### Authors
 * Amari James
 * @redthemadhacker

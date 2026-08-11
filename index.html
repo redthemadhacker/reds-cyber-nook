@@ -6,11 +6,14 @@
 
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Red's Cyber Nook</title>
 
 
     <style>
+
+
         html, body {
            margin: 0;
            padding: 0;
@@ -30,7 +33,7 @@
 
         .text-box {
             text-align: center;
-            position: absolute;
+            position: relative;
             font-family: 'VT323', monospace;
             top: 77%;
             left: 32%;
@@ -41,8 +44,9 @@
         
         h1 {
            text-align: center;
-           font-size: 50px;
+           font-size:  2.2vw; 
            white-space: nowrap;
+           max-width: 80%;
            border-right: 3px solid #ff0000;
            animation: typing 10s steps(20), blink 0.7s infinite;
         }
@@ -58,6 +62,7 @@
         p {
            text-align: center;
            position: relative;
+           font-size: clamp(14px, 0.85vw, 16px);
            animation: glitch 0.8s infinite;
         }
 
@@ -68,7 +73,45 @@
              60% { transform: translateX(2px); }
              80% { transform: translateX(-2px); }
              100% { transform: none; }
-}
+        }
+
+        .button-box {
+           text-align: center;
+           position: absolute;
+           top: 87%;
+           left: 43%;
+           font-family: 'VT323', monospace;
+           font-size: clamp(14px, 0.85vw, 16px);
+           animation: ;
+        }
+
+        .nav-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:active::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff0000,
+                #ff0000 2px,
+                #000 2px,
+                #000 4px
+            );
+            animation: glitch-explode 1s steps(4);
+            opacity: 0.8;
+        }
+
+        @keyframes glitch-explode {
+            0% { transform: translate(0,0); }
+            25% { transform: translate(-6px, 3px); }
+            50% { transform: translate(4px, -4px); }
+            75% { transform: translate(-3px, 5px); }
+            100% { transform: translate(0,0); }
+        }
 
 
     </style>
@@ -88,6 +131,14 @@
         Skilled in incident triage, system diagnostics, secure device management, and developing lightweight engineering solutions to improve operational efficiency. 
         Currently completing renewal training for CySA+ and LPIC‑1.</p>
 
+    </div>
+    
+    <div
+    
+    class="button-box">
+         <a href="connection.html" class="nav-btn">Connection Ports</a>
+         <a href="build.html" class="nav-btn">Build Log</a>
+         <a href="growth.html" class="nav-btn">Growth Hub</a>
 
     </div>
 

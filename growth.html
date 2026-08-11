@@ -44,7 +44,7 @@
            font-size: 50px;
            white-space: nowrap;
            border-right: 3px solid #ff0000;
-           animation: typing 10s steps(20), blink 0.7s infinite;
+           animation: typing 05s steps(20), blink 0.7s infinite;
         }
         @keyframes typing {
              from { width: 0; }
@@ -53,6 +53,13 @@
 
         @keyframes blink {
              50% { border-color: transparent; }
+        }
+
+        .back-box {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-family: 'VT323', monospace;
         }
 
 
@@ -69,6 +76,13 @@
     
     class="text-box">
          <h1>Growth Hub</h1>
+
+    </div>
+
+    <div
+    
+    class="back-box">
+         <a href="index.html" class="nav-btn">Back to Nook</a>
 
     </div>
 

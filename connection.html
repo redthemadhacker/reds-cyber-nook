@@ -25,18 +25,20 @@
            background-color: #333333;
            overflow: hidden; 
            position: relative;
-           background-image: url("");
+           background-image: url("https://img.magnific.com/free-vector/stream-binary-code-design-vector_53876-164425.jpg?semt=ais_test_b&w=740&q=80");
         }
 
         .text-box {
             text-align: center;
-            position: absolute;
+            position: relative;
             font-family: 'VT323', monospace;
             top: 5%;
             left: 5%;
             color: #ff0000;
             max-width: 700px;
             transform: translateY(-50%); 
+            z-index: 5;
+            margin-top: 20px;
         }    
         
         h1 {
@@ -57,10 +59,46 @@
 
         .back-box {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            right: 145px;
+            top: 12px;
             font-family: 'VT323', monospace;
         }
+
+        .image-map {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 1;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .image-map img {
+             width: 100%;
+            display: block;
+        }
+
+        .spot {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        .spot1 { top: 20%; left: 30%; }
+        .spot2 { top: 50%; left: 60%; }
+        .spot3 { top: 75%; left: 40%; }
+        .spot4 { top: 95%; left: 80%; }
+
+        .spot:hover {
+            box-shadow: 0 0 20px #ff0000;
+            border-radius: 50%;
+            background: rgba(255,0,0,0.3);
+        }         
+
+
+
 
 
     </style>
@@ -71,21 +109,34 @@
 
 <body>
 
+    <div class="page-wrapper"></div>
 
-    <div 
+        <div 
     
-    class="text-box">
-         <h1>Connection Ports</h1>
+        class="text-box">
+            <h1>Connection Ports</h1>
 
-    </div>
+        </div>
 
-    <div
+        <div
     
-    class="back-box">
-         <a href="index.html" class="nav-btn">Back to Nook</a>
+        class="back-box">
+            <a href="index.html" class="nav-btn">Back to Nook</a>
 
+        </div>
+
+        <div 
+    
+        class="image-map">
+            <img src="https://paleblueearth.com/cdn/shop/articles/USB_Ports_1000x.webp?v=1754335060" alt="map">
+            <a href="985-645-1621" class="spot spot1"></a>
+            <a href="marbusiness98@gmail.com" class="spot spot2"></a>
+            <a href="https://linkedin.com/in/amarijames" class="spot spot3"></a>
+            <a href="https://docs.google.com/document/d/e/2PACX-1vSGx-k5IIfeXjnETyxmCd0HnvBsJCeTiNS46BZbHcPPIGO-HgGA3_akRpLpNGmtE91QFAx47MV2ubNY/pub" class="spot spot4"></a>
+
+        </div>
+        
     </div>
-
 
 </body>
 

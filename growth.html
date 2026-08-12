@@ -21,14 +21,16 @@
         }
 
         body {
+           color: #ff0000;
+           font-family: 'VT323', monospace; 
            background-repeat no-repeat;
            background-position: center;
            background-size: cover;
            background-color: #333333;
-           overflow: hidden; 
+           overflow-y: auto; 
            position: relative;
-           background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-OMaAal5Ljp8agQJbkM7PBLJFOW_HFdcR8nH3-GvFA&s=10");
-           /* background-image: url("https://www.growqai.com/_next/image?url=%2Fimages%2Fsplash-bg.png&w=3840&q=75&dpl=dpl_5fFvhbSDxpHER2ADCoiY1BiiQX3z"); */
+           /* (CONSTRUCTION) background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-OMaAal5Ljp8agQJbkM7PBLJFOW_HFdcR8nH3-GvFA&s=10"); */
+           background-image: url("https://www.growqai.com/_next/image?url=%2Fimages%2Fsplash-bg.png&w=3840&q=75&dpl=dpl_5fFvhbSDxpHER2ADCoiY1BiiQX3z"); 
         }
 
         .text-box {
@@ -66,16 +68,16 @@
             font-family: 'VT323', monospace;
         }
 
-        .growth-container {
+        .log-container {
             width: 80%;
-            max-width: 1000px;
+            max-width: 1600px;
             margin: 40px auto;
         }
 
-        .growth-box {
+        .log-entry {
             opacity: 0;
-            width: 400px;
-            max-width: 600px;
+            width: 1200px;
+            max-width: 1400px;
             min-height: 50px;
             border: 2px solid #ff0000;
             border-radius: 10px;
@@ -85,21 +87,34 @@
             animation: flyInSide 0.9s ease-out forwards;
         }
 
-        .growth-box:nth-of-type(1) {
-            animation-delay: 1s;
-            transform: translateX(-60px);
-        }
-        .growth-box:nth-of-type(2) {
-            animation-delay: 2s;
-            transform: translateX(60px);
-        }
-        .growth-box:nth-of-type(3) {
+        .log-entry:nth-of-type(1) {
             animation-delay: 3s;
             transform: translateX(-60px);
         }
-        .growth-box:nth-of-type(4) {
-            animation-delay: 4s;
+        .log-entry:nth-of-type(2) {
+            animation-delay: 3s;
+            transform: translateX(-60px);
+        }
+        .log-entry:nth-of-type(3) {
+            animation-delay: 5s;
             transform: translateX(60px);
+        }
+        .log-entry:nth-of-type(4) {
+            animation-delay: 5s;
+            transform: translateX(60px);
+        }
+
+        .log-entry:nth-of-type(5) {
+            animation-delay: 7s;
+            transform: translateX(-60px);
+        }
+        .log-entry:nth-of-type(6) {
+            animation-delay: 7s;
+            transform: translateX(-60px);
+        }
+        .log-entry:nth-of-type(7) {
+            animation-delay: 7s;
+            transform: translateX(-60px);
         }
 
         @keyframes flyInSide {
@@ -109,28 +124,12 @@
             }
         }
 
-        .columns {
-            display: table-column;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
+        .service-btn {
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 5px;
+            background-color: #00ffff;
         }
-
-        .left-column,
-        .right-column {
-            display: table-column;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .left-column .growth-box {
-            transform: translateX(-60px);
-        }
-
-        .right-column .growth-box {
-            transform: translateX(60px);
-        }
-
 
 
     </style>
@@ -213,6 +212,59 @@
 
     </div> -->
 
+    <div class="log-container">
+
+    <div class="log-entry">
+        <h2>CompTIA CySA+ - Cybersecurity Analyst</h2>
+        <p> Honing skills in threat detection, incident response, SIEM analysis, vulnerability management, 
+            and security operations. Currently providing freelance threat analysis, SIEM monitoring, and security 
+            support for client environments.
+        </p>
+    </div>
+
+    <div class="log-entry">
+        <h2>Linux Professional Institute LPIC-1 - Linux Administrator</h2>
+        <p>Studying Linux fundamentals, system architecture, command‑line operations, package management, 
+            networking basics, and essential troubleshooting. Developing and managing projects in Ubuntu on a daily 
+            basis to deepen command‑line proficiency and practical Linux administration experience.
+        </p>
+    </div>
+
+    <div class="log-entry">
+        <h2><a href="https://github.com/redthemadhacker" target="_blank">GitHub</a></h2>
+        <p>Active repos, version control, project documentation.
+        </p>
+    </div>
+
+    <div class="log-entry">
+        <h2><a href="https://learn.cylabacademy.org/users/redthemadhacker" target="_blank">CyLab</a></h2>
+        <p>CTF exercises, SIEM‑style analysis, real‑world attack simulation.
+        </p>
+    </div>
+
+    <div class="log-entry">
+        <h2>Web Projects</h2>
+        <p>Custom portfolio pages, booking sites, and lightweight business webpages built with clean, responsive design.
+        </p>
+        <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Web Work</a>  
+    </div>
+
+    <div class="log-entry">
+        <h2>Tech Support</h2>
+        <p>WiFi troubleshooting, router optimization, device setup, and home network stability improvements.
+        </p>
+        <a href="form.html" class="service-btn">Request Tech Support</a>
+    </div>
+
+    <div class="log-entry">
+        <h2>Cybersecurity</h2>
+        <p>Firewall configuration, secure network setup, malware removal, and basic security hardening.
+        </p>
+        <a href="form.html" target="_blank" class="service-btn">Request Security Help</a>
+    </div>
+
+
+    </div>
 
 </body>
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #00FFFF;
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      width: 100%;
+      max-width: 450px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #111;
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid #00FFFF;
+    }
+
+    .contact-form label {
+      text-align: left;
+      font-weight: 600;
+      color: #00FFFF;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #00FFFF;
+      background: #0a0a0a;
+      color: white;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      background: #00FFFF;
+      color: #000;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .contact-form button:hover {
+      background: #33FFFF;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Contact Request</h1>
+
+  <form class="contact-form">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Request</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Request</button>
+  </form>
+
+</body>
+</html>

@@ -27,6 +27,11 @@
            background-color: #333333;
            overflow: hidden; 
            position: relative;
+           margin: 0;
+           padding: 0;
+           font-family: 'VT323', monospace;
+           color: #ff0000;
+           text-align: center; 
            background-image: url("https://t4.ftcdn.net/jpg/08/86/49/53/360_F_886495385_XudXZcfZb7FqTwSWpDjwOEWfsol6Sw6e.jpg");
         }
 
@@ -46,6 +51,7 @@
            font-size: 50px;
            white-space: nowrap;
            border-right: 3px solid #ff0000;
+           margin-top: 40px;
            animation: typing 05s steps(20), blink 0.7s infinite;
         }
         @keyframes typing {
@@ -63,6 +69,43 @@
             bottom: 12px;
             color: #ff0000;
             font-family: 'VT323', monospace;
+        }
+
+        .log-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .log-entry {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #ff0000;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #ff0000;
+            text-align: left;
+        }
+
+        @keyframes flyIn {
+            to {
+            opacity: 1;
+            transform: translateY(0);
+            }
+        }
+
+        /* Staggered timing */
+        .log-entry:nth-child(1) { animation-delay: 1s; }
+        .log-entry:nth-child(2) { animation-delay: 3s; }
+        .log-entry:nth-child(3) { animation-delay: 5s; }
+        .log-entry:nth-child(4) { animation-delay: 7s; }
+        .log-entry:nth-child(5) { animation-delay: 9s; }
+
+        ul {
+            margin: 10px 0 0 20px;
         }
 
 
@@ -86,6 +129,45 @@
     
     class="back-box">
          <a href="index.html" class="nav-btn">Back to Nook</a>
+
+    </div>
+
+    <div class="log-container">
+
+    <div class="log-entry">
+        <h2>Education</h2>
+        <ul>
+            <li><a href="secert.pdf" target="_blank">General Assembly</a>- Full Stack Software Engineer</li>
+            <li><a href="cysacert.pdf" target="_blank">Per Scholas</a>- Cybersecurity Analyst</li>
+        </ul>
+    </div>
+
+    <div class="log-entry">
+        <h2>TEKSystems- Service Desk Analyst</h2>
+        <ul>
+            <li>Complex technical issues</li>
+            <li>Secure user environments</li>
+            <li>End-to-end support</li>
+        </ul>
+    </div>
+
+    <div class="log-entry">
+        <h2>Tech Mahindra- Lvl 1.5 Technical Support Associate</h2>
+        <ul>
+            <li>Complex hardware/software issues</li>
+            <li>Secure handling procedures</li>
+            <li>Team support and escalation approval</li>
+        </ul>
+    </div>
+
+    <div class="log-entry">
+        <h2>Outside Catz Facilities</h2>
+        <ul>
+            <li>Website administration</li>
+            <li>Remote operations management</li>
+            <li>Process automation</li>
+        </ul>
+    </div>
 
     </div>
 

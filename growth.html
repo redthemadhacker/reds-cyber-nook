@@ -65,6 +65,73 @@
             font-family: 'VT323', monospace;
         }
 
+        .growth-container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .growth-box {
+            opacity: 0;
+            width: 400px;
+            max-width: 600px;
+            min-height: 50px;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #ff0000;
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+            animation: flyInSide 0.9s ease-out forwards;
+        }
+
+        .growth-box:nth-of-type(1) {
+            animation-delay: 1s;
+            transform: translateX(-60px);
+        }
+        .growth-box:nth-of-type(2) {
+            animation-delay: 2s;
+            transform: translateX(60px);
+        }
+        .growth-box:nth-of-type(3) {
+            animation-delay: 3s;
+            transform: translateX(-60px);
+        }
+        .growth-box:nth-of-type(4) {
+            animation-delay: 4s;
+            transform: translateX(60px);
+        }
+
+        @keyframes flyInSide {
+            to {
+            opacity: 1;
+            transform: translateX(0);
+            }
+        }
+
+        .columns {
+            display: table-column;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .left-column,
+        .right-column {
+            display: table-column;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .left-column .growth-box {
+            transform: translateX(-60px);
+        }
+
+        .right-column .growth-box {
+            transform: translateX(60px);
+        }
+
+
 
     </style>
 
@@ -101,75 +168,56 @@
 
     <div>
 
-        <div class="growth-wrapper">
+    <div class="growth-container">
+    <div class="columns"></div>
 
-            <section class="growth-section"> ... </section>
-
-        <!-- <div class="back-box">
-            <a href="index.html" class="back-btn">Back to Nook</a>
-        </div>  
-
-    </div>
-
-
-    </div>
-
-    <section class="growth-section">
-
+      <div class="left-column"></div>
         <div class="growth-box">
-
-            <div class="freelance-item">
-                <h3>Web Projects</h3>
-                <p>Custom portfolio pages, booking sites, and lightweight business webpages built with clean, responsive design.</p>
-                <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Web Work</a>
-            </div>
-
-            <div class="freelance-item">
-                <h3>Tech Support</h3>
-                <p>WiFi troubleshooting, router optimization, device setup, and home network stability improvements.</p>
-                <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Tech Support</a>
-            </div>
-
-            <div class="freelance-item">
-                <h3>Cybersecurity</h3>
-                <p>Firewall configuration, secure network setup, malware removal, and basic security hardening.</p>
-                  <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Security Help</a>
-            </div> 
-
-            <div class="cert-item">
-                <h4>CompTIA CySA+</h4>
-                <p>
-                Focused on threat detection, incident response, SIEM analysis, vulnerability management, 
-                and security operations. Renewal training underway to sharpen defensive security skills.
-                </p>
-            </div>
-
-            <div class="cert-item">
-                <h4>LPIC‑1: Linux Administrator</h4>
-                <p>
-                Studying Linux fundamentals, system architecture, command‑line operations, package management, 
-                networking basics, and essential troubleshooting. This cert validates real‑world Linux admin skills.
-                </p>
-            </div>
-
-            <div class="growth-links-box">
-
-                <a href="https://picoctf.org" class="growth-link" target="https://learn.cylabacademy.org/users/redthemadhacker">
-                PicoCTF Challenges
-                </a>
-
-                <a href="https://github.com/AmariJames" class="growth-link" target="https://github.com/redthemadhacker">
-                My GitHub Repository
-                </a>
-
-            </div>
-
+            <h2>CompTIA CySA+ - Cybersecurity Analyst</h2>
+            <p> Honing skills in threat detection, incident response, SIEM analysis, vulnerability management, 
+            and security operations. Currently providing freelance threat analysis, SIEM monitoring, and security 
+            support for client environments.</p>
         </div>
 
-    </section> 
+         <div class="growth-box">
+            <h2>Linux Professional Institute LPIC-1 - Linux Administrator</h2>
+            <p>Studying Linux fundamentals, system architecture, command‑line operations, package management, 
+            networking basics, and essential troubleshooting. Developing and managing projects in Ubuntu on a daily 
+            basis to deepen command‑line proficiency and practical Linux administration experience.</p>
+        </div>   
+
+        <div class="growth-box">
+            <h2>GitHub</h2>
+            <p>Active repos, version control, project documentation.</p>
+        </div>
+
+         <div class="growth-box">
+            <h2>CTF</h2>
+            <p>CTF exercises, SIEM‑style analysis, real‑world attack simulation.</p>
+        </div>
+
+      <div class="growth-container"></div>  
+      <div class="right-column"></div>
+        <div class="growth-box">
+            <h2>Web Projects</h2>
+            <p>Custom portfolio pages, booking sites, and lightweight business webpages built with clean, responsive design.</p>
+            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Web Work</a>
+        </div> 
+
+        <div class="growth-box">
+            <h2>Tech Support</h2>
+            <p>WiFi troubleshooting, router optimization, device setup, and home network stability improvements.</p>
+            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Tech Support</a>
+        </div>
+
+        <div class="growth-box">
+            <h2>Cybersecurity</h2>
+            <p>Firewall configuration, secure network setup, malware removal, and basic security hardening.</p>
+            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Security Help</a>
+        </div>
 
 
-</body> */
+    </div>
 
 
 </html>

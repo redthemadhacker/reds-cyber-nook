@@ -1,7 +1,7 @@
 # Red's Cyber Nook
 Current portfolio. 
 ## Professional Portfolio
-Professional portfolio website for Amari James. Exhibits educational background, professional experience, continued learning, and contact information for Amari James, SE, CySA, LP. 
+Professional portfolio website for Amari James. Exhibits educational background, professional experience, continued learning, and contact information for Amari James, SE, CySA, LA.
 ### Dependencies 
 * Linux Ubuntu 24.10, Github, VSCode, Heroku
 * Python, Flask, Gunicorn
@@ -13,7 +13,7 @@ Professional portfolio website for Amari James. Exhibits educational background,
 * Amari James
 * [@redthemadhacker](https://github.com/redthemadhacker)
 ### Version History
-* 0.1 
+* 1.0
     - Initial release 
 ### Acknowledgements 
 * Copilot 

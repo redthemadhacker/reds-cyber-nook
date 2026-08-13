@@ -29,6 +29,9 @@
            background-color: #333333;
            overflow-y: auto; 
            position: relative;
+           margin: 0;
+           padding: 0;
+           text-align: center;
            /* (CONSTRUCTION) background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-OMaAal5Ljp8agQJbkM7PBLJFOW_HFdcR8nH3-GvFA&s=10"); */
            background-image: url("https://www.growqai.com/_next/image?url=%2Fimages%2Fsplash-bg.png&w=3840&q=75&dpl=dpl_5fFvhbSDxpHER2ADCoiY1BiiQX3z"); 
         }
@@ -49,6 +52,7 @@
            font-size: 50px;
            white-space: nowrap;
            border-right: 3px solid #ff0000;
+           margin-top: 40px;
            animation: typing 05s steps(20), blink 0.7s infinite;
         }
         @keyframes typing {
@@ -70,22 +74,22 @@
 
         .log-container {
             width: 80%;
-            max-width: 1600px;
+            max-width: 900px;
             margin: 40px auto;
-            position: relative;
+            margin-top: 100px;
         }
 
         .log-entry {
             opacity: 0;
-            width: 1200px;
-            max-width: 1400px;
-            min-height: 50px;
+            transform: translateY(40px);
+            background: rgba(0, 0, 0, 0.6);
             border: 2px solid #ff0000;
             border-radius: 10px;
             padding: 20px;
-            margin: 20px auto;
+            box-shadow: 0 0 15px #ff0000;
+            margin-bottom: 20px;
             text-align: center;
-            animation: flyInSide 0.9s ease-out forwards;
+            animation: flyInSide 0.8s ease-out forwards;
         }
 
         .log-entry:nth-of-type(1) {

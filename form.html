@@ -31,9 +31,9 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 24px; /* more space between each label/input group */
+    gap: 24px; 
     background: #111;
-    padding: 30px 40px; /* adds space on right side */
+    padding: 30px 40px; 
     border-radius: 10px;
     border: 1px solid #ff0000;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
@@ -44,7 +44,7 @@
     font-weight: 600;
     color: #ff0000;
     margin-top: 25px;
-    margin-bottom: 6px; /* space between label and box */
+    margin-bottom: 6px; 
   }
 
   .form input,
@@ -122,9 +122,10 @@
 
     <div id="result"></div>
 
-  </div>
 
-    <script>
+</body>
+
+  <script>
     const form = document.querySelector("form");
     const result = document.getElementById("result");
 
@@ -139,19 +140,12 @@
         const data = await response.json();
 
         if (data.success) {
-        result.innerHTML = "Form submitted successfully!";
+        result.innerHTML = "Success! :) Form submitted successfully.";
         form.reset();
         } else {
-        result.innerHTML = "Something went wrong.";
+        result.innerHTML = "Error! :/ Something went wrong.";
         }
-    });
-    </script>
-
-
-    </div>
-
-
-</body>
-
+  });
+  </script>
 
 </html>

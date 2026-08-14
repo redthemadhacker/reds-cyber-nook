@@ -99,22 +99,22 @@
   class="form">
 
  <form action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="6e00323c-9391-4233-aa63-c54d85a07c7f">
+  <input type="hidden" name="access_key" value="6e00323c-9391-4233-aa63-c54d85a07c7f">
 
  <form class="form">
   <div class="form-group">
     <div class="label">Name</div>
-    <input type="text">
+    <input type="text" name="name" required>
   </div>
 
   <div class="form-group">
     <div class="label">Email</div>
-    <input type="email">
+    <input type="email" name="email" required>
   </div>
 
   <div class="form-group">
     <div class="label">Message</div>
-    <textarea></textarea>
+    <textarea name="message" required></textarea>
   </div>
 
   <button class="button">Done</button>

@@ -23,37 +23,64 @@
     margin-bottom: 25px;
   }
 
-  .form {
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 14px; 
-    background: #111;
-    padding: 25px; 
-    border-radius: 10px;
-    border: 2px solid #ff0000;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  form, .form {
+      width: 90% !important;
+      max-width: 450px !important;
+      margin: 30px auto !important;
+      background: #111111;
+      padding: 25px; 
+      border-radius: 10px;
+      border: 2px solid #ff0000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+      box-sizing: border-box;
   }
 
-  .label {
-    text-align: left;
-    font-weight: 600;
-    color: #ff0000;
-    margin-top: 25px;
-    margin-bottom: 6px; 
+  .form-group {
+      width: 100%;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
   }
 
-  .form input,
-  .form textarea {
-    padding: 10px;
-    border: 2px solid #ff0000;
-    background-color: #0a0a0a;
-    color: white;
-    border-radius: 6px;
-    font-size: 15px;
-  }
+          .form-group label {
+              color: #ffffff;
+              font-size: 14px;
+              font-weight: bold;
+              margin-bottom: 6px;
+              text-align: left;
+          }
+
+          .form-group input,
+          .form-group textarea {
+              width: 100% !important;
+              padding: 10px;
+              border: 2px solid #ff0000;
+              background-color: #ffffff !important; 
+              color: #000000 !important;            
+              border-radius: 6px;
+              font-size: 15px;
+              box-sizing: border-box;
+          }
+
+          .form-group input::placeholder,
+          .form-group textarea::placeholder {
+              color: #666666;
+          }
+
+          .form button,
+          form button {
+              width: 100%;
+              background-color: #ff0000;
+              color: #ffffff;
+              padding: 12px;
+              font-size: 16px;
+              font-weight: bold;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+              margin-top: 10px;
+          }
 
   .button {
     padding: 12px;

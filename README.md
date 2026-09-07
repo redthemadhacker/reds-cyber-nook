@@ -17,5 +17,7 @@ Professional portfolio website for Amari James. Exhibits educational background,
     - Initial release 
 * 2.0
     - Version 2.0 release. Legibility fixes and page updates. 
+* 2.1
+    - Version 2.1 release. Resume and page updates.    
 ## Acknowledgements 
 * Copilot 

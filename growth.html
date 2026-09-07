@@ -72,6 +72,8 @@
             bottom: 12px;
             color: #000000;
             font-family: 'VT323', monospace;
+            flex-direction: column;
+            display: flex;
         }
 
         .log-container {
@@ -140,6 +142,33 @@
             background-image: url("https://img.magnific.com/free-vector/modern-polygon-technology-background_1035-17923.jpg?semt=ais_hybrid&w=740&q=80"); 
         }
 
+        .nav-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:active::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff0000,
+                #ff0000 2px,
+                #000 2px,
+                #000 4px
+            );
+            animation: glitch-explode 1s steps(4);
+            opacity: 0.8;
+        }
+
+        @keyframes glitch-explode {
+            0% { transform: translate(0,0); }
+            25% { transform: translate(-6px, 3px); }
+            50% { transform: translate(4px, -4px); }
+            75% { transform: translate(-3px, 5px); }
+            100% { transform: translate(0,0); }
+        }
 
 
     </style>
@@ -157,6 +186,9 @@
     
         class="back-box">
             <a href="index.html" class="nav-btn">Back to Nook</a>
+            <a href="training.html" class="nav-btn">Training Archive</a>
+        <a href="build.html" class="nav-btn">Build Log</a>
+        <a href="connection.html" class="nav-btn">Connection Ports</a>
 
         </div>
         

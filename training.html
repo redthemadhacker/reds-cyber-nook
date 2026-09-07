@@ -67,9 +67,11 @@
         .back-box {
             position: fixed;
             right: 12px;
-            bottom: 12px;
+            bottom: 5px;
             color: #000000;
             font-family: 'VT323', monospace;
+            display: flex;
+            flex-direction: column;
         }
 
         .log-container {
@@ -123,7 +125,33 @@
             z-index: -1;
         }   
 
+                .nav-btn:active::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff0000,
+                #ff0000 2px,
+                #000 2px,
+                #000 4px
+            );
+            animation: glitch-explode 1s steps(4);
+            opacity: 0.8;
+        }
 
+        @keyframes glitch-explode {
+            0% { transform: translate(0,0); }
+            25% { transform: translate(-6px, 3px); }
+            50% { transform: translate(4px, -4px); }
+            75% { transform: translate(-3px, 5px); }
+            100% { transform: translate(0,0); }
+        }
+  
+          .nav-btn {
+            position: relative;
+            overflow: hidden;
+        }
 
     </style>
 
@@ -145,6 +173,9 @@
     
     class="back-box">
          <a href="index.html" class="nav-btn">Back to Nook</a>
+        <a href="build.html" class="nav-btn">Build Log</a>
+        <a href="growth.html" class="nav-btn">Growth Hub</a>
+        <a href="connection.html" class="nav-btn">Connection Ports</a>
 
     </div>
 

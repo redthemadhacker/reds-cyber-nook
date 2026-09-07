@@ -68,8 +68,12 @@
             position: fixed;
             right: 12px;
             bottom: 12px;
-            color: #000000;
+            color: #ff0000;
             font-family: 'VT323', monospace;
+            flex-direction: column;
+            display: flex;
+            transform: translateX(-50%);
+            font-size: clamp(14px, 0.85vw, 16px);
         }
 
         .log-container {
@@ -103,6 +107,7 @@
         .log-entry:nth-child(2) { animation-delay: 1s; }
         .log-entry:nth-child(3) { animation-delay: 1.5s; }
         .log-entry:nth-child(4) { animation-delay: 2s; }
+        .log-entry:nth-child(5) { animation-delay: 2.5s; }
 
 
         ul {
@@ -122,7 +127,41 @@
             z-index: -1;
         }   
 
+                .nav-btn:active::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff0000,
+                #ff0000 2px,
+                #000 2px,
+                #000 4px
+            );
+            animation: glitch-explode 1s steps(4);
+            opacity: 0.8;
+        }
 
+
+        @keyframes glitch-explode {
+            0% { transform: translate(0,0); }
+            25% { transform: translate(-6px, 3px); }
+            50% { transform: translate(4px, -4px); }
+            75% { transform: translate(-3px, 5px); }
+            100% { transform: translate(0,0); }
+        }
+         @keyframes glitch {
+             0% { transform: none; }
+             20% { transform: skew(2deg); }
+             40% { transform: skew(-2deg); }
+             60% { transform: translateX(2px); }
+             80% { transform: translateX(-2px); }
+             100% { transform: none; }
+        }
+          .nav-btn {
+            position: relative;
+            overflow: hidden;
+        }
 
     </style>
 
@@ -144,6 +183,9 @@
     
     class="back-box">
          <a href="index.html" class="nav-btn">Back to Nook</a>
+         <a href="training.html" class="nav-btn">Training Archive</a>
+        <a href="growth.html" class="nav-btn">Growth Hub</a>
+        <a href="connection.html" class="nav-btn">Connection Ports</a>
 
     </div>
 
@@ -163,6 +205,17 @@
         </p>
     </div>
 
+      <div class="log-entry">
+        <h2><a href="https://pdrbyeddie-c9dcdea3495f.herokuapp.com/index.html" target="_blank">PDR by Eddie</a>- Client Project</h2>
+        <p> Solo commercial website project built with HTML, CSS, and JavaScript, then deployed live on Heroku for a local Paintless Dent Repair business. 
+        To serve the static frontend seamlessly on Heroku without Node.js, the backend was configured using Python, Flask, and Gunicorn to handle routing. 
+        The platform features an interactive flip-card gallery with a full-screen image expansion modal, custom glitch CSS hover effects, and a Formspree-powered 
+        hotline form configured with mobile camera support so customers can send direct photo quote requests. Achieving full mobile-responsiveness required extensive 
+        custom CSS work and layout experimentation—fine-tuning Flexbox containers, resolving fixed-width horizontal overflow, and adjusting overlays so text stays sharp 
+        against the dark aesthetic across every viewport. The site is currently hosted on a live Heroku staging environment, awaiting client approval to connect their owned 
+        custom domain for final launch.
+        </p> 
+    </div>
         <div class="log-entry">
         <h2><a href="image-view.html" target="_blank">Irezumi</a>- Team Project</h2>
         <p> Collaborative full‑stack tattoo networking app built with React, Bootstrap, MongoDB, and Cloudinary. 

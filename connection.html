@@ -8,13 +8,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <title>Red's Cyber Nook</title>
+    <title>Connection Ports - Red's Cyber Nook</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/6783/6783360.png">
 
 
     <style>
-
         
+
         html, body {
            margin: 0;
            padding: 0;
@@ -27,33 +27,38 @@
            background-position: center;
            background-size: cover;
            background-color: #333333;
-           overflow-x: hidden;
            overflow-y: auto; 
            position: relative;
+           margin: 0;
+           padding: 0;
+           font-family: 'VT323', monospace;
+           color: #000000;
+           text-align: center; 
            background-attachment: fixed;
-           background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmxN6k40zOiIy7XiYhx-g9g7WAT-Dm_YbRe3O-KCXGXg2DSBF7Sm8UNd_&s=10");
         }
 
         .text-box {
             text-align: center;
             position: relative;
             font-family: 'VT323', monospace;
-            top: 5%;
-            left: 5%;
-            color: #000000;
+            margin: 20px auto 20px auto;
             max-width: 700px;
-            transform: translateY(-50%); 
-            z-index: 5;
-            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
+            color: #ff0000;
         }    
         
         h1 {
            text-align: center;
-           font-size: 50px;
+           font-size: clamp(2.2rem, 5vw, 3.5rem);
            white-space: nowrap;
-           border-right: 3px solid #000000;
+           border-right: 3px solid #ff0000;
+           margin: 10px 0;
+           display: inline-block;
            animation: typing 0.5s steps(20), blink 0.7s infinite;
         }
+
         @keyframes typing {
              from { width: 0; }
              to { width: 100%; }
@@ -64,34 +69,73 @@
         }
 
         .back-box {
-            position: fixed;
-            right: 12px;
-            bottom: 12px;
-            color: #000000;
-            font-family: 'VT323', monospace;
-            flex-direction: column;
             display: flex;
-            text-align: center;
-            font-size: 24px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 10px 0 10px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
             z-index: 100;
-            gap: 6px;
+            font-size: 24px;
         }
 
         .image-map {
             position: relative;
-            margin: 0 auto 120px auto;
-            width: 90%;
-            max-width: 700px;
+            margin: 20px auto 100px auto;
+            width: 85%;
+            max-width: 900px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out 0.3s forwards;
+        }
+
+        .image-title {
+            font-size: 32px;
+            color: #ff0000;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 2px solid #000000;
+            text-align: center;
+            white-space: nowrap;
+            font-family: 'VT323', monospace;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .image-title:hover {
+            transform: translateY(-3px);
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
         }
 
         .image-container {
             position: relative;
             width: 100%;
             display: inline-block;
+            border: 2px solid #000000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .image-container:hover {
+            transform: translateY(-3px);
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
         }
 
         .image-map img {
@@ -106,6 +150,7 @@
             height: 25%;
             top: 52%;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
 
         .spot-resume { left: 4.5%; }
@@ -116,8 +161,21 @@
         .spot:hover {
             box-shadow: 0 0 20px #ff0000;
             border-radius: 50%;
-            background: rgba(255,0,0,0.3);
+            background: rgba(255, 0, 0, 0.3);
         }         
+
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmxN6k40zOiIy7XiYhx-g9g7WAT-Dm_YbRe3O-KCXGXg2DSBF7Sm8UNd_&s=10");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -1;
+        }   
 
         .nav-btn {
             position: relative;
@@ -133,7 +191,7 @@
 
         .nav-btn:hover {
             background: #ff0000;
-            color: #ffffff;
+            color: #000000;
             border-color: #ff0000;
             box-shadow: 0 0 10px #ff0000;
         }
@@ -161,41 +219,24 @@
             100% { transform: translate(0,0); }
         }
 
-        .image-title {
-            font-size: 35px;
-            color: #ff0000;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 6px 16px;
-            border-radius: 8px;
-            border: 1px solid #ff0000;
-            text-align: center;
-            white-space: nowrap;
-            font-family: 'VT323', monospace;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 36px;
-            }
-
-            .image-title {
-                font-size: 24px;
-                white-space: normal;
-            }
-
-            .back-box {
-                right: 8px;
-                bottom: 8px;
-                font-size: 18px;
-            }
-        }
-
         @keyframes flyIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .image-map {
+                width: 90%;
+            }
+            .image-title {
+                font-size: 22px;
+                white-space: normal;
+            }
+            .back-box {
+                font-size: 18px;
+                gap: 8px;
             }
         }
 
@@ -207,33 +248,29 @@
 
 <body>
 
-    <div class="page-wrapper"></div>
-
-        <div class="text-box">
-            <h1>Connection Ports</h1>
-        </div>
-
-        <div class="back-box">
-            <a href="index.html" class="nav-btn">Back to Nook</a>
-            <a href="training.html" class="nav-btn">Training Archive</a>
-            <a href="build.html" class="nav-btn">Build Log</a>
-            <a href="growth.html" class="nav-btn">Growth Hub</a>
-        </div>
-
-        <div class="image-map">
-          <h2 class="image-title">Plug in! Choose a port to connect 🔌</h2>
-          <div class="image-container">
-            <img src="https://paleblueearth.com/cdn/shop/articles/USB_Ports_1000x.webp?v=1754335060" alt="map">
-            <a href="James_A.pdf" target="_blank" class="spot spot-resume"></a>
-            <a href="tel:9856451621" class="spot spot-phone"></a>
-            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="spot spot-email"></a>
-            <a href="https://linkedin.com/in/amari-james" class="spot spot4"></a>
-          </div>
-
-        </div>
-        
+    <div class="back-box">
+        <a href="index.html" class="nav-btn">Back to Nook</a>
+        <a href="training.html" class="nav-btn">Training Archive</a>
+        <a href="build.html" class="nav-btn">Build Log</a>
+        <a href="growth.html" class="nav-btn">Growth Hub</a>
     </div>
 
+    <div class="text-box">
+         <h1>Connection Ports</h1>
+    </div>
+
+    <div class="bg"></div>
+
+    <div class="image-map">
+        <h2 class="image-title">Plug in! Choose a port to connect 🔌</h2>
+        <div class="image-container">
+            <img src="https://paleblueearth.com/cdn/shop/articles/USB_Ports_1000x.webp?v=1754335060" alt="map">
+            <a href="James_A.pdf" target="_blank" class="spot spot-resume" title="Resume"></a>
+            <a href="tel:9856451621" class="spot spot-phone" title="Phone"></a>
+            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="spot spot-email" title="Email"></a>
+            <a href="https://linkedin.com/in/amari-james" target="_blank" class="spot spot4" title="LinkedIn"></a>
+        </div>
+    </div>
 
 </body>
 

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <title>Red's Cyber Nook</title>
+    <title>Training Archive - Red's Cyber Nook</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/6783/6783360.png">
 
 
@@ -41,18 +41,19 @@
             text-align: center;
             position: relative;
             font-family: 'VT323', monospace;
-            margin: 40px auto 20px auto;
+            margin: 20px auto 20px auto;
             max-width: 700px;
             opacity: 0;
             transform: translateY(40px);
             animation: flyIn 0.8s ease-out forwards;
+            color:#ff0000;
         }    
         
         h1 {
            text-align: center;
            font-size: clamp(2.2rem, 5vw, 3.5rem);
            white-space: nowrap;
-           border-right: 3px solid #000000;
+           border-right: 3px solid #ff0000;
            margin: 10px 0;
            display: inline-block;
            animation: typing 0.5s steps(20), blink 0.7s infinite;
@@ -68,16 +69,19 @@
         }
 
         .back-box {
-            position: fixed;
-            right: 12px;
-            bottom: 12px;
-            color: #000000;
-            font-family: 'VT323', monospace;
             display: flex;
-            flex-direction: column;
-            font-size: 24px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 10px 0 10px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
             z-index: 100;
-            gap: 6px;
+            font-size: 24px;
         }
 
         .log-container {
@@ -246,6 +250,7 @@
             }
             .back-box {
                 font-size: 18px;
+                gap: 8px;
             }
         }
 
@@ -257,16 +262,15 @@
 
 <body>
 
-
-    <div class="text-box">
-         <h1>Training Archive</h1>
-    </div>
-
     <div class="back-box">
         <a href="index.html" class="nav-btn">Back to Nook</a>
         <a href="build.html" class="nav-btn">Build Log</a>
         <a href="growth.html" class="nav-btn">Growth Hub</a>
         <a href="connection.html" class="nav-btn">Connection Ports</a>
+    </div>
+
+    <div class="text-box">
+         <h1>Training Archive</h1>
     </div>
 
     <div class="bg"></div>
@@ -316,8 +320,8 @@
                 <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                 <span class="bar-tag">LOG // 004</span>
             </div>
-            <h2><a href="teksystems .pdf" target="_blank">TEKSystems</a> - Service Desk Analyst</h2>
-            <p>Complex technical issues, secure user environments, end-to-end support.</p>
+            <h2><a href="techm.pdf" target="_blank">Tech Mahindra</a> - Lvl 1.5 Technical Support Associate</h2>
+            <p>Complex hardware/software issue, secure handling procedures, team support and escalation approval.</p>
         </div>
 
         <div class="log-entry">
@@ -325,8 +329,8 @@
                 <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                 <span class="bar-tag">LOG // 005</span>
             </div>
-            <h2><a href="techm.pdf" target="_blank">Tech Mahindra</a> - Lvl 1.5 Technical Support Associate</h2>
-            <p>Complex hardware/software issue, secure handling procedures, team support and escalation approval.</p>
+            <h2><a href="teksystems .pdf" target="_blank">TEKSystems</a> - Service Desk Analyst</h2>
+            <p>Complex technical issues, secure user environments, end-to-end support.</p>
         </div>
 
         <div class="log-entry">

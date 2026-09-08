@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Red's Cyber Nook</title>
-    <link rel="shortcut icon" type="image/jpeg" href="nyte.png">
+    <link rel="shortcut icon" type="image/jpeg" href="nook.png">
 
 
     <style>
@@ -17,8 +17,8 @@
         html, body {
            margin: 0;
            padding: 0;
-           height: 100%;
            width: 100%;
+           box-sizing: border-box;
         }
 
         body {
@@ -33,25 +33,26 @@
            display: flex;
            flex-direction: column;
            align-items: center;
-           justify-content: center;
+           justify-content: flex-start;
            min-height: 100vh;
            box-sizing: border-box;
-           padding: 20px;
+           padding: 15px;
         }
 
         .cyber-window {
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.88);
             border: 2px solid #ff0000;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
             border-radius: 12px;
             width: 100%;
             max-width: 680px;
-            padding: 25px;
+            padding: 20px;
             box-sizing: border-box;
             position: relative;
             opacity: 0;
             transform: translateY(40px);
             animation: flyIn 0.8s ease-out forwards;
+            margin-top: 10px;
         }
 
         .window-bar {
@@ -60,7 +61,7 @@
             justify-content: space-between;
             border-bottom: 1px solid #ff0000;
             padding-bottom: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .window-dots {
@@ -88,75 +89,86 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #ff0000;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+            box-sizing: border-box;
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            width: 320px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
         }
 
         .home-title {
             font-family: 'VT323', monospace;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 7vw, 3.5rem);
             color: #ff0000;
-            margin: 0 auto 15px auto;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #ff0000;
-            display: inline-block;
-            animation: typing 0.5s steps(20) forwards, blink 0.7s infinite;
-        }
-
-        @keyframes typing {
-             from { width: 0; }
-             to { width: 100%; }
-        }
-
-        @keyframes blink {
-             50% { border-color: transparent; }
+            margin: 0 0 15px 0;
+            text-align: center;
+            width: 100%;
+            word-break: break-word;
         }
 
         .homepage-text {
             font-family: 'VT323', monospace;
-            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             line-height: 1.4;
             color: #ffffff;
-            margin: 0 auto;
+            margin: 0;
             text-align: center;
-            animation: glitch 0.8s infinite;
-        }
-
-        @keyframes glitch {
-             0% { transform: none; }
-             20% { transform: skew(1deg); }
-             40% { transform: skew(-1deg); }
-             60% { transform: translateX(1px); }
-             80% { transform: translateX(-1px); }
-             100% { transform: none; }
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .button-box {
             font-family: 'VT323', monospace;
             width: 100%;
             max-width: 680px;
-            margin-top: 20px;
+            margin-top: 15px;
+            margin-bottom: 20px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
             opacity: 0;
             transform: translateY(40px);
             animation: flyIn 0.8s ease-out forwards;
             animation-delay: 0.4s;
+            box-sizing: border-box;
         }
 
         .nav-btn {
             position: relative;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.88);
             border: 2px solid #ff0000;
             color: #ff0000;
             text-decoration: none;
             padding: 12px 10px;
-            font-size: 22px;
+            font-size: 20px;
             text-align: center;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
             transition: all 0.2s ease-in-out;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         .nav-btn:hover {
@@ -166,29 +178,6 @@
             transform: translateY(-2px);
         }
 
-        .nav-btn:active::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                #ff0000,
-                #ff0000 2px,
-                #000 2px,
-                #000 4px
-            );
-            animation: glitch-explode 1s steps(4);
-            opacity: 0.8;
-        }
-
-        @keyframes glitch-explode {
-            0% { transform: translate(0,0); }
-            25% { transform: translate(-6px, 3px); }
-            50% { transform: translate(4px, -4px); }
-            75% { transform: translate(-3px, 5px); }
-            100% { transform: translate(0,0); }
-        }
-
         @keyframes flyIn {
             to {
                 opacity: 1;
@@ -196,10 +185,22 @@
             }
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+                justify-content: flex-start;
+            }
+            .cyber-window {
+                padding: 15px;
+                margin-top: 5px;
+            }
             .button-box {
                 grid-template-columns: 1fr;
                 gap: 10px;
+            }
+            .nav-btn {
+                font-size: 22px;
+                padding: 14px 10px;
             }
         }
 
@@ -223,8 +224,8 @@
         </div>
 
         <div class="home-container">
-            <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 20px; background: rgba(0, 0, 0, 0.6); border: 1px solid #ff0000; border-radius: 8px; padding: 10px; box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);">
-                <img src="nook.png" alt="Red's Cyber Nook Logo" style="max-width: 100%; width: 340px; height: auto; display: block; filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));">
+            <div class="logo-container">
+                <img src="nook.png" alt="Red's Cyber Nook Logo">
             </div>
 
             <h1 class="home-title">Mad Dev Red</h1>

@@ -6,6 +6,7 @@
 
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Red's Cyber Nook</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/6783/6783360.png">
@@ -40,30 +41,21 @@
             text-align: center;
             position: relative;
             font-family: 'VT323', monospace;
-            top: 5%;
-            left: 5%;
-            color: #000000;
+            margin: 40px auto 20px auto;
             max-width: 700px;
-            transform: translateY(-50%); 
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
         }    
         
         h1 {
            text-align: center;
-           font-size: 50px;
+           font-size: clamp(2.2rem, 5vw, 3.5rem);
            white-space: nowrap;
            border-right: 3px solid #000000;
-           margin-top: 40px;
+           margin: 10px 0;
            display: inline-block;
-           opacity: 0;
-           transform: translateX(-100px);
-           animation: slideInLeft 0.8s ease-out forwards, typing 0.5s steps(20), blink 0.7s infinite;
-        }
-
-        @keyframes slideInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+           animation: typing 0.5s steps(20), blink 0.7s infinite;
         }
 
         @keyframes typing {
@@ -78,51 +70,114 @@
         .back-box {
             position: fixed;
             right: 12px;
-            bottom: 5px;
+            bottom: 12px;
             color: #000000;
             font-family: 'VT323', monospace;
             display: flex;
             flex-direction: column;
             font-size: 24px;
+            z-index: 100;
+            gap: 6px;
         }
 
         .log-container {
-            width: 80%;
+            width: 85%;
             max-width: 900px;
-            margin: 40px auto;
-            margin-top: 100px;
+            margin: 20px auto 100px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .log-entry {
             opacity: 0;
             transform: translateY(40px);
             animation: flyIn 0.8s ease-out forwards;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.85);
             border: 2px solid #000000;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #000000;
-            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            text-align: left;
+            color: #ffffff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            position: relative;
+        }
+
+        .log-entry:hover {
+            transform: translateY(-3px);
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        }
+
+        .entry-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            box-shadow: 0 0 4px #ff0000;
+        }
+
+        .bar-tag {
+            font-size: 14px;
+            color: #ff0000;
+            letter-spacing: 1px;
+        }
+
+        .log-entry h2 {
+            margin: 0 0 10px 0;
+            font-size: 26px;
+            color: #ff0000;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+        }
+
+        .log-entry p {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.3;
+            color: #dddddd;
+        }
+
+        .log-entry a {
+            color: #ff0000;
+            text-decoration: none;
+            border-bottom: 1px dashed #ff0000;
+            transition: all 0.2s ease;
+        }
+
+        .log-entry a:hover {
+            color: #ffffff;
+            background: #ff0000;
+            border-bottom: 1px solid #ffffff;
         }
 
         @keyframes flyIn {
             to {
-            opacity: 1;
-            transform: translateY(0);
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .log-entry:nth-child(1) { animation-delay: .5s; }
-        .log-entry:nth-child(2) { animation-delay: 1s; }
-        .log-entry:nth-child(3) { animation-delay: 1.5s; }
-        .log-entry:nth-child(4) { animation-delay: 2s; }
-        .log-entry:nth-child(5) { animation-delay: 2.5s; }
-        .log-entry:nth-child(6) { animation-delay: 3s; }
-
-        ul {
-            margin: 10px 0 0 20px;
-        }
+        .log-entry:nth-child(1) { animation-delay: .3s; }
+        .log-entry:nth-child(2) { animation-delay: .6s; }
+        .log-entry:nth-child(3) { animation-delay: .9s; }
+        .log-entry:nth-child(4) { animation-delay: 1.2s; }
+        .log-entry:nth-child(5) { animation-delay: 1.5s; }
+        .log-entry:nth-child(6) { animation-delay: 1.8s; }
 
         .bg {
             position: fixed;
@@ -130,12 +185,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://i0.pickpik.com/photos/932/467/825/books-education-school-literature-preview.jpg");
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmxN6k40zOiIy7XiYhx-g9g7WAT-Dm_YbRe3O-KCXGXg2DSBF7Sm8UNd_&s=10");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             z-index: -1;
         }   
+
+        .nav-btn {
+            position: relative;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ff0000;
+            border: 2px solid #000000;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ff0000;
+            color: #000000;
+            border-color: #ff0000;
+            box-shadow: 0 0 10px #ff0000;
+        }
 
         .nav-btn:active::before {
             content: "";
@@ -159,10 +233,20 @@
             75% { transform: translate(-3px, 5px); }
             100% { transform: translate(0,0); }
         }
-  
-        .nav-btn {
-            position: relative;
-            overflow: hidden;
+
+        @media (max-width: 600px) {
+            .log-container {
+                width: 90%;
+            }
+            .log-entry h2 {
+                font-size: 22px;
+            }
+            .log-entry p {
+                font-size: 17px;
+            }
+            .back-box {
+                font-size: 18px;
+            }
         }
 
     </style>
@@ -174,63 +258,85 @@
 <body>
 
 
-    <div 
-    
-    class="text-box">
+    <div class="text-box">
          <h1>Training Archive</h1>
-
     </div>
 
-    <div
-    
-    class="back-box">
-         <a href="index.html" class="nav-btn">Back to Nook</a>
+    <div class="back-box">
+        <a href="index.html" class="nav-btn">Back to Nook</a>
         <a href="build.html" class="nav-btn">Build Log</a>
         <a href="growth.html" class="nav-btn">Growth Hub</a>
         <a href="connection.html" class="nav-btn">Connection Ports</a>
-
     </div>
 
     <div class="bg"></div>
 
     <div class="log-container">
 
-    <div class="log-entry">
-        <h2>Education</h2>
-            <a href="secert.pdf" target="_blank">General Assembly</a>- Full Stack Software Engineer  |  
-            <a href="cysacert.pdf" target="_blank">Per Scholas</a>- Cybersecurity Analyst
-    </div>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">LOG // 001</span>
+            </div>
+            <h2>Education</h2>
+            <p>
+                <a href="secert.pdf" target="_blank">General Assembly</a> - Full Stack Software Engineer &nbsp;|&nbsp; 
+                <a href="cysacert.pdf" target="_blank">Per Scholas</a> - Cybersecurity Analyst
+            </p>
+        </div>
 
-    <div class="log-entry">
-        <h2>CompTIA CySA+ - Cybersecurity Analyst</h2>
-        <p> Honing skills in threat detection, incident response, SIEM analysis, vulnerability management, 
-            and security operations. Currently providing freelance threat analysis, SIEM monitoring, and security 
-            support for client environments.
-        </p>
-    </div>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">LOG // 002</span>
+            </div>
+            <h2>CompTIA CySA+ - Cybersecurity Analyst</h2>
+            <p>
+                Honing skills in threat detection, incident response, SIEM analysis, vulnerability management, 
+                and security operations. Currently providing freelance threat analysis, SIEM monitoring, and security 
+                support for client environments.
+            </p>
+        </div>
 
-    <div class="log-entry">
-        <h2>Linux Professional Institute LPIC-1 - Linux Administrator</h2>
-        <p>Studying Linux fundamentals, system architecture, command‑line operations, package management, 
-            networking basics, and essential troubleshooting. Developing and managing projects in Ubuntu on a daily 
-            basis to deepen command‑line proficiency and practical Linux administration experience.
-        </p>
-    </div>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">LOG // 003</span>
+            </div>
+            <h2>Linux Professional Institute LPIC-1 - Linux Administrator</h2>
+            <p>
+                Studying Linux fundamentals, system architecture, command‑line operations, package management, 
+                networking basics, and essential troubleshooting. Developing and managing projects in Ubuntu on a daily 
+                basis to deepen command‑line proficiency and practical Linux administration experience.
+            </p>
+        </div>
 
-    <div class="log-entry">
-        <h2><a href="teksystems .pdf" target="_blank">TEKSystems</a>- Service Desk Analyst</h2>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">LOG // 004</span>
+            </div>
+            <h2><a href="teksystems .pdf" target="_blank">TEKSystems</a> - Service Desk Analyst</h2>
             <p>Complex technical issues, secure user environments, end-to-end support.</p>
-    </div>
+        </div>
 
-    <div class="log-entry">
-        <h2><a href="techm.pdf" target="_blank">Tech Mahindra</a>- Lvl 1.5 Technical Support Associate</h2>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">LOG // 005</span>
+            </div>
+            <h2><a href="techm.pdf" target="_blank">Tech Mahindra</a> - Lvl 1.5 Technical Support Associate</h2>
             <p>Complex hardware/software issue, secure handling procedures, team support and escalation approval.</p>
-    </div>
+        </div>
 
-    <div class="log-entry">
-        <h2><a href="catz.pdf" target="_blank">Outside Catz Facilities</a>- Operations Manager/IT Programmer</h2>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">LOG // 006</span>
+            </div>
+            <h2><a href="catz.pdf" target="_blank">Outside Catz Facilities</a> - Operations Manager/IT Programmer</h2>
             <p>Website administration, remote operations management, process automation.</p>
-    </div>
+        </div>
 
     </div>
 

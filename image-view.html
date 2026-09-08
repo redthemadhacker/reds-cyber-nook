@@ -1,33 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <title>Image View</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #333333;
+      background-image: url("https://img.magnific.com/premium-photo/abstract-binary-code-white-clean-background-copyspace-right_215274-1166.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'VT323', monospace;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
     .img-container {
       position: relative;
-      display: inline-block;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #000000;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
 
     .note {
-      position: relative;
-      bottom: 150px;
-      left: 100px;
-      width: 100%;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 800px;
       text-align: center;
-      color: white;
-      font-size: 18px;
-      background: rgba(0,0,0,0.5);
-      padding: 8px 0;
+      color: #000000;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ff0000;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+      padding: 12px 18px;
+      border-radius: 8px;
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .img-container {
+        display: block;
+      }
+
+      .note {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+        font-size: 1rem;
+        padding: 10px;
+        border-radius: 0 0 10px 10px;
+      }
     }
   </style>
 </head>
 <body>
 
 <div class="img-container">
-  <img src="404.jpeg" style="width:100%;">
-  <div class="note">Disclaimer: The application showcased was produced as an academic project. 
-    It was fully functional at the time of completion, howver due to course hosting limitations, 
-    the live deployment and API connection are no longer available.</div>
+  <img src="404.jpeg" alt="Project Screenshot">
+  <div class="note">
+    <strong>Disclaimer:</strong> The application showcased was produced as an academic project. 
+    It was fully functional at the time of completion; however, due to course hosting limitations, 
+    the live deployment and API connection are no longer available.
+  </div>
 </div>
 
 </body>

@@ -23,7 +23,7 @@
         }
 
         body {
-           background-repeat no-repeat;
+           background-repeat: no-repeat;
            background-position: center;
            background-size: cover;
            background-color: #333333;
@@ -31,16 +31,78 @@
            position: relative;
            background-attachment: fixed;
            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmxN6k40zOiIy7XiYhx-g9g7WAT-Dm_YbRe3O-KCXGXg2DSBF7Sm8UNd_&s=10");
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           min-height: 100vh;
+           box-sizing: border-box;
+           padding: 20px;
         }
-         
-        h1 {
-           text-align: center;
-           font-size:  2.2vw; 
-           white-space: nowrap;
-           max-width: 80%;
-           border-right: 3px solid #ff0000;
-           animation: typing 05s steps(20), blink 0.7s infinite;
+
+        .cyber-window {
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 680px;
+            padding: 25px;
+            box-sizing: border-box;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
         }
+
+        .window-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ff0000;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff0000;
+            box-shadow: 0 0 5px #ff0000;
+        }
+
+        .window-title {
+            font-family: 'VT323', monospace;
+            color: #ff0000;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .home-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .home-title {
+            font-family: 'VT323', monospace;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: #ff0000;
+            margin: 0 auto 15px auto;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #ff0000;
+            display: inline-block;
+            animation: typing 0.5s steps(20) forwards, blink 0.7s infinite;
+        }
+
         @keyframes typing {
              from { width: 0; }
              to { width: 100%; }
@@ -50,42 +112,59 @@
              50% { border-color: transparent; }
         }
 
-        p {
-           text-align: center;
-           position: relative;
-           font-size: clamp(14px, 0.85vw, 16px);
-           animation: glitch 0.8s infinite;
+        .homepage-text {
+            font-family: 'VT323', monospace;
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            line-height: 1.4;
+            color: #ffffff;
+            margin: 0 auto;
+            text-align: center;
+            animation: glitch 0.8s infinite;
         }
 
         @keyframes glitch {
              0% { transform: none; }
-             20% { transform: skew(2deg); }
-             40% { transform: skew(-2deg); }
-             60% { transform: translateX(2px); }
-             80% { transform: translateX(-2px); }
+             20% { transform: skew(1deg); }
+             40% { transform: skew(-1deg); }
+             60% { transform: translateX(1px); }
+             80% { transform: translateX(-1px); }
              100% { transform: none; }
         }
 
         .button-box {
-           position: absolute;
-           color: #ff0000;
-           font-family: 'VT323', monospace;
-           font-size: 24px;
-            bottom: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
+            font-family: 'VT323', monospace;
+            width: 100%;
+            max-width: 680px;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
+            animation-delay: 0.4s;
         }
 
         .nav-btn {
             position: relative;
             overflow: hidden;
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            text-decoration: none;
+            padding: 12px 10px;
+            font-size: 22px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .nav-btn:hover {
+            background: #ff0000;
+            color: #000000;
+            box-shadow: 0 0 15px #ff0000;
+            transform: translateY(-2px);
         }
 
         .nav-btn:active::before {
@@ -111,52 +190,19 @@
             100% { transform: translate(0,0); }
         }
 
-        .home-container {
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        @keyframes flyIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-
-
-        .homepage-text {
-            font-size: clamp(1rem, 2vw, 1.4rem);
-            line-height: 1.5;
-            text-align: center;
-            position: relative;
-            font-family: 'VT323', monospace;
-            color: #ff0000;
-            max-width: 500px;
+        @media (max-width: 500px) {
+            .button-box {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
         }
-        
-        .home-title {
-            font-family: 'VT323', monospace;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: #ff0000;
-            margin-bottom: 10px;
-            direction: ltr;
-            unicode-bidi: normal;
-        }
-
-        .homepage-text {
-            font-family: 'VT323', monospace;
-            font-size: clamp(1rem, 2vw, 1.4rem);
-            line-height: 1.5;
-            color: #ff0000;
-            max-width: 600px;
-            margin: 0 auto;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-
 
     </style>
 
@@ -167,23 +213,32 @@
 <body>
 
 
-    <div class="home-container">
+    <div class="cyber-window">
+        <div class="window-bar">
+            <div class="window-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <span class="window-title">SYS_ROOT // MAIN_TERMINAL</span>
+        </div>
 
-        <h1 class="home-title">Mad Dev Red</h1>
+        <div class="home-container">
+            <h1 class="home-title">Mad Dev Red</h1>
 
-        <p class="homepage-text">
-        Amari James, SE, CySA, LA. | Certified Software Engineer, Cybersecurity Analyst, and Linux Administrator with experience supporting enterprise IT operations, endpoint security, and software-driven workflow automation.
-        Skilled in incident triage, system diagnostics, secure device management, and developing lightweight engineering solutions to improve operational efficiency.
-        Currently completing renewal training for CySA+ and LPIC‑1.
-        </p>
-
+            <p class="homepage-text">
+            Amari James, SE, CySA, LA. | Certified Software Engineer, Cybersecurity Analyst, and Linux Administrator with experience supporting enterprise IT operations, endpoint security, and software-driven workflow automation.
+            Skilled in incident triage, system diagnostics, secure device management, and developing lightweight engineering solutions to improve operational efficiency.
+            Currently completing renewal training for CySA+ and LPIC‑1.
+            </p>
+        </div>
     </div>
 
     <div class="button-box">
-        <a href="training.html" class="nav-btn">Training Archive</a>
-        <a href="build.html" class="nav-btn">Build Log</a>
-        <a href="growth.html" class="nav-btn">Growth Hub</a>
-        <a href="connection.html" class="nav-btn">Connection Ports</a>
+        <a href="training.html" class="nav-btn">[ Training Archive ]</a>
+        <a href="build.html" class="nav-btn">[ Build Log ]</a>
+        <a href="growth.html" class="nav-btn">[ Growth Hub ]</a>
+        <a href="connection.html" class="nav-btn">[ Connection Ports ]</a>
     </div>
 
 

@@ -41,21 +41,23 @@
             text-align: center;
             position: relative;
             font-family: 'VT323', monospace;
-            top: 5%;
-            left: 5%;
-            color: #000000;
+            margin: 40px auto 10px auto;
             max-width: 700px;
-            transform: translateY(-50%); 
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
         }    
         
         h1 {
            text-align: center;
-           font-size: 50px;
+           font-size: clamp(2.2rem, 5vw, 3.5rem);
            white-space: nowrap;
            border-right: 3px solid #000000;
-           margin-top: 40px;
+           margin: 10px 0;
+           display: inline-block;
            animation: typing 0.5s steps(20), blink 0.7s infinite;
         }
+
         @keyframes typing {
              from { width: 0; }
              to { width: 100%; }
@@ -66,9 +68,19 @@
         }
 
         .instruction-text {
-            font-size: 24px;
-            color: #000000;
-            margin: -20px 0 20px 0;
+            font-size: 20px;
+            color: #ff0000;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #ff0000;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            margin: 0 auto 30px auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: flyIn 0.8s ease-out forwards;
+            animation-delay: 0.2s;
         }
 
         .back-box {
@@ -77,11 +89,11 @@
             bottom: 12px;
             color: #000000;
             font-family: 'VT323', monospace;
-            flex-direction: column;
             display: flex;
-            text-align: center;
+            flex-direction: column;
             font-size: 24px;
             z-index: 100;
+            gap: 6px;
         }
 
         .bg {
@@ -90,12 +102,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://img.magnific.com/premium-photo/abstract-binary-code-white-clean-background-copyspace-right_215274-1166.jpg");
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmxN6k40zOiIy7XiYhx-g9g7WAT-Dm_YbRe3O-KCXGXg2DSBF7Sm8UNd_&s=10");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             z-index: -1;
         }   
+
+        .nav-btn {
+            position: relative;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ff0000;
+            border: 2px solid #000000;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ff0000;
+            color: #000000;
+            border-color: #ff0000;
+            box-shadow: 0 0 10px #ff0000;
+        }
 
         .nav-btn:active::before {
             content: "";
@@ -112,7 +143,6 @@
             opacity: 0.8;
         }
 
-
         @keyframes glitch-explode {
             0% { transform: translate(0,0); }
             25% { transform: translate(-6px, 3px); }
@@ -120,28 +150,16 @@
             75% { transform: translate(-3px, 5px); }
             100% { transform: translate(0,0); }
         }
-         @keyframes glitch {
-             0% { transform: none; }
-             20% { transform: skew(2deg); }
-             40% { transform: skew(-2deg); }
-             60% { transform: translateX(2px); }
-             80% { transform: translateX(-2px); }
-             100% { transform: none; }
-        }
-        .nav-btn {
-            position: relative;
-            overflow: hidden;
-        }
 
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
             gap: 20px;
-            width: 95%;
+            width: 90%;
             max-width: 1100px;
             aspect-ratio: 16 / 10;
-            margin: 20px auto 100px auto;
+            margin: 0 auto 100px auto;
         }
 
         .card-container {
@@ -164,31 +182,31 @@
         .card-top-left {
             grid-column: 1 / 2;
             grid-row: 1 / 2;
-            animation-delay: .5s;
+            animation-delay: .4s;
         }
 
         .card-top-right {
             grid-column: 3 / 4;
             grid-row: 1 / 2;
-            animation-delay: 1s;
+            animation-delay: .7s;
         }
 
         .card-center-square {
             grid-column: 2 / 3;
             grid-row: 2 / 3;
-            animation-delay: 1.5s;
+            animation-delay: 1s;
         }
 
         .card-bottom-left {
             grid-column: 1 / 2;
             grid-row: 3 / 4;
-            animation-delay: 2s;
+            animation-delay: 1.3s;
         }
 
         .card-bottom-right {
             grid-column: 3 / 4;
             grid-row: 3 / 4;
-            animation-delay: 2.5s;
+            animation-delay: 1.6s;
         }
 
         .card-flipper {
@@ -198,9 +216,14 @@
             transform-style: preserve-3d;
             transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 2px solid #000000;
-            box-shadow: 0 0 15px #000000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .card-flipper:hover {
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
         }
 
         .card-flipper.flipped {
@@ -212,7 +235,7 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             top: 0;
             left: 0;
@@ -221,21 +244,23 @@
 
         .card-front {
             z-index: 2;
+            background: #000000;
         }
 
         .card-back {
-            background-color: #000000;
+            background-color: rgba(0, 0, 0, 0.9);
             color: #ffffff;
             transform: rotateY(180deg);
             padding: 15px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
             font-size: 18px;
-            line-height: 1.2;
+            line-height: 1.3;
             border: 1px solid #ff0000;
             overflow-y: auto;
+            box-sizing: border-box;
         }
 
         .card-img {
@@ -243,6 +268,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-flipper:hover .card-img {
+            opacity: 1;
         }
 
         .card-overlay {
@@ -250,40 +281,81 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7);
-            color: #ffffff;
-            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ff0000;
+            padding: 8px 16px;
             border-radius: 8px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-family: 'VT323', monospace;
             text-align: center;
             white-space: nowrap;
-            border: 1px solid #000000;
+            border: 1px solid #ff0000;
             text-decoration: none;
             z-index: 5;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            transition: all 0.2s ease;
         }
 
         .card-overlay:hover {
             background: #ff0000;
             color: #000000;
+            box-shadow: 0 0 15px #ff0000;
         }
 
-        /* Mobile Responsive Scaling */
-        @media (max-width: 600px) {
+        .entry-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            box-shadow: 0 0 4px #ff0000;
+        }
+
+        .bar-tag {
+            font-size: 12px;
+            color: #ff0000;
+            letter-spacing: 1px;
+        }
+
+        .card-back-text {
+            color: #dddddd;
+            font-size: 17px;
+            margin: auto 0;
+        }
+
+        @media (max-width: 768px) {
             .portfolio-grid {
-                width: 90%;
-                gap: 10px;
+                display: flex;
+                flex-direction: column;
                 aspect-ratio: auto;
+                gap: 15px;
+            }
+
+            .card-container {
+                height: 220px;
             }
 
             .card-overlay {
-                font-size: 0.95rem;
-                padding: 4px 6px;
+                font-size: 1.1rem;
+                padding: 6px 12px;
             }
 
-            .card-back {
-                font-size: 14px;
-                padding: 8px;
+            .card-back-text {
+                font-size: 15px;
             }
 
             .back-box {
@@ -292,12 +364,9 @@
                 font-size: 18px;
             }
 
-            h1 {
-                font-size: 36px;
-            }
-
             .instruction-text {
-                font-size: 18px;
+                font-size: 16px;
+                width: 85%;
             }
         }
 
@@ -310,25 +379,19 @@
 <body>
 
 
-    <div 
-    
-    class="text-box">
+    <div class="text-box">
          <h1>Build Log</h1>
-
     </div>
 
     <div class="instruction-text">
-        Click any card to flip and view the log description. Click the title button to launch the site! ⚡
+        ⚡ Click any card to flip and view the log description. Click the title button to launch the site! ⚡ 
     </div>
 
-    <div
-    
-    class="back-box">
-         <a href="index.html" class="nav-btn">Back to Nook</a>
-         <a href="training.html" class="nav-btn">Training Archive</a>
+    <div class="back-box">
+        <a href="index.html" class="nav-btn">Back to Nook</a>
+        <a href="training.html" class="nav-btn">Training Archive</a>
         <a href="growth.html" class="nav-btn">Growth Hub</a>
         <a href="connection.html" class="nav-btn">Connection Ports</a>
-
     </div>
 
     <div class="bg"></div>
@@ -342,7 +405,13 @@
                     <a href="https://github.com/redthemadhacker" target="_blank" class="card-overlay" onclick="event.stopPropagation()">GitHub</a>
                 </div>
                 <div class="card-back">
-                    Central repository terminal holding active tools, source scripts, and deployment experiments.
+                    <div class="entry-bar">
+                        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <span class="bar-tag">SYS_NODE // 01</span>
+                    </div>
+                    <div class="card-back-text">
+                        Central repository terminal holding active tools, source scripts, and deployment experiments.
+                    </div>
                 </div>
             </div>
         </div>
@@ -354,7 +423,13 @@
                     <a href="https://learn.cylabacademy.org/users/redthemadhacker" target="_blank" class="card-overlay" onclick="event.stopPropagation()">CyLab</a>
                 </div>
                 <div class="card-back">
-                    Cybersecurity training modules, interactive CTF challenge logs, and hands-on lab exercises.
+                    <div class="entry-bar">
+                        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <span class="bar-tag">SYS_NODE // 02</span>
+                    </div>
+                    <div class="card-back-text">
+                        Cybersecurity training modules, interactive CTF challenge logs, and hands-on lab exercises.
+                    </div>
                 </div>
             </div>
         </div>
@@ -366,9 +441,15 @@
                     <a href="https://pdrbyeddie-c9dcdea3495f.herokuapp.com/index.html" target="_blank" class="card-overlay" onclick="event.stopPropagation()">PDR by Eddie</a>
                 </div>
                 <div class="card-back">
-                    Custom company website for paintless dent repair business. Features a flip-card gallery with image modal, 
-                    glitch hover effects, and a Formspree photo-quote form with mobile camera support. Custom Flexbox layout
-                    engineered for full mobile responsiveness across all viewports. Live on Heroku staging pending domain setup.
+                    <div class="entry-bar">
+                        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <span class="bar-tag">SYS_NODE // 03</span>
+                    </div>
+                    <div class="card-back-text">
+                        Custom company website for paintless dent repair business. Features a flip-card gallery with image modal, 
+                        glitch hover effects, and a Formspree photo-quote form with mobile camera support. Custom Flexbox layout
+                        engineered for full mobile responsiveness across all viewports. Live on Heroku staging pending domain setup.
+                    </div>
                 </div>
             </div>
         </div>
@@ -380,9 +461,15 @@
                     <a href="https://kutsbykal-3b819444b5a5.herokuapp.com/" target="_blank" class="card-overlay" onclick="event.stopPropagation()">Kutz by Kal</a>
                 </div>
                 <div class="card-back">
-                    Custom sewing portfolio to display custom threadwork. Features an interactive estimate request form, smooth 
-                    hidden-slide card transitions, full-screen image expansion modals, and a clean responsive layout optimized 
-                    for mobile viewports.
+                    <div class="entry-bar">
+                        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <span class="bar-tag">SYS_NODE // 04</span>
+                    </div>
+                    <div class="card-back-text">
+                        Custom sewing portfolio to display custom threadwork. Features an interactive estimate request form, smooth 
+                        hidden-slide card transitions, full-screen image expansion modals, and a clean responsive layout optimized 
+                        for mobile viewports.
+                    </div>
                 </div>
             </div>
         </div>
@@ -394,8 +481,14 @@
                     <a href="image-view.html" target="_blank" class="card-overlay" onclick="event.stopPropagation()">HZHQ</a>
                 </div>
                 <div class="card-back">
-                    Full-stack Express/Node.js app built with HTML, CSS, and JS for SE certification. Features secure user 
-                    authentication, YouTube API integration for streaming Hertz-frequency audio, and custom saved libraries.
+                    <div class="entry-bar">
+                        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <span class="bar-tag">SYS_NODE // 05</span>
+                    </div>
+                    <div class="card-back-text">
+                        Full-stack Express/Node.js app built with HTML, CSS, and JS for SE certification. Features secure user 
+                        authentication, YouTube API integration for streaming Hertz-frequency audio, and custom saved libraries.
+                    </div>
                 </div>
             </div>
         </div>

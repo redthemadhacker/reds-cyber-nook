@@ -6,6 +6,7 @@
 
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Red's Cyber Nook</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/6783/6783360.png">
@@ -24,7 +25,7 @@
         body {
            color: #000000;
            font-family: 'VT323', monospace; 
-           background-repeat no-repeat;
+           background-repeat: no-repeat;
            background-position: center;
            background-size: cover;
            background-color: #333333;
@@ -34,29 +35,29 @@
            padding: 0;
            text-align: center;
            background-attachment: fixed;
-           /* (CONSTRUCTION) background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-OMaAal5Ljp8agQJbkM7PBLJFOW_HFdcR8nH3-GvFA&s=10"); */
-           background-image: url("https://img.magnific.com/free-vector/modern-polygon-technology-background_1035-17923.jpg?semt=ais_hybrid&w=740&q=80"); 
         }
 
         .text-box {
             text-align: center;
             position: relative;
             font-family: 'VT323', monospace;
-            top: 5%;
-            left: 5%;
-            color: #000000;
+            margin: 40px auto 20px auto;
             max-width: 700px;
-            transform: translateY(-50%); 
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
         }    
         
         h1 {
            text-align: center;
-           font-size: 50px;
+           font-size: clamp(2.2rem, 5vw, 3.5rem);
            white-space: nowrap;
            border-right: 3px solid #000000;
-           margin-top: 40px;
-           animation: typing 05s steps(20), blink 0.7s infinite;
+           margin: 10px 0;
+           display: inline-block;
+           animation: typing 0.5s steps(20), blink 0.7s infinite;
         }
+
         @keyframes typing {
              from { width: 0; }
              to { width: 100%; }
@@ -72,62 +73,132 @@
             bottom: 12px;
             color: #000000;
             font-family: 'VT323', monospace;
-            flex-direction: column;
             display: flex;
+            flex-direction: column;
             font-size: 24px;
+            z-index: 100;
+            gap: 6px;
         }
 
         .log-container {
-            width: 80%;
+            width: 85%;
             max-width: 900px;
-            margin: 40px auto;
-            margin-top: 100px;
+            margin: 20px auto 100px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .log-entry {
             opacity: 0;
-            transform: translateY(40px);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.85);
             border: 2px solid #000000;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 0 15px #000000;
-            margin-bottom: 20px;
-            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            text-align: left;
+            color: #ffffff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            position: relative;
             animation: flyInSide 0.8s ease-out forwards;
         }
 
+        .log-entry:hover {
+            transform: translateY(-3px);
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        }
+
         .log-entry:nth-of-type(1) {
-            animation-delay: 1s;
+            animation-delay: 0.3s;
             transform: translateX(-60px);
         }
         .log-entry:nth-of-type(2) {
-            animation-delay: 2s;
+            animation-delay: 0.6s;
             transform: translateX(60px);
         }
         .log-entry:nth-of-type(3) {
-            animation-delay: 3s;
+            animation-delay: 0.9s;
             transform: translateX(-60px);
         }
         .log-entry:nth-of-type(4) {
-            animation-delay: 4s;
+            animation-delay: 1.2s;
             transform: translateX(60px);
         }
 
-  
-
         @keyframes flyInSide {
             to {
-            opacity: 1;
-            transform: translateX(0);
+                opacity: 1;
+                transform: translateX(0);
             }
         }
 
+        @keyframes flyIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .entry-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            box-shadow: 0 0 4px #ff0000;
+        }
+
+        .bar-tag {
+            font-size: 14px;
+            color: #ff0000;
+            letter-spacing: 1px;
+        }
+
+        .log-entry h2 {
+            margin: 0 0 10px 0;
+            font-size: 26px;
+            color: #ff0000;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+        }
+
+        .log-entry p {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+            line-height: 1.3;
+            color: #dddddd;
+        }
+
         .service-btn {
-            border: 2px solid #000000;
-            border-radius: 15px;
-            padding: 5px;
+            display: inline-block;
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            padding: 6px 14px;
             background-color: #000000;
+            color: #ff0000;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.2);
+        }
+
+        .service-btn:hover {
+            background-color: #ff0000;
+            color: #000000;
+            box-shadow: 0 0 15px #ff0000;
         }
 
         .bg {
@@ -140,12 +211,26 @@
             background-repeat: no-repeat;
             background-position: center;
             z-index: -1;
-            background-image: url("https://img.magnific.com/free-vector/modern-polygon-technology-background_1035-17923.jpg?semt=ais_hybrid&w=740&q=80"); 
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmxN6k40zOiIy7XiYhx-g9g7WAT-Dm_YbRe3O-KCXGXg2DSBF7Sm8UNd_&s=10"); 
         }
 
         .nav-btn {
             position: relative;
             overflow: hidden;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ff0000;
+            border: 2px solid #000000;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ff0000;
+            color: #000000;
+            border-color: #ff0000;
+            box-shadow: 0 0 10px #ff0000;
         }
 
         .nav-btn:active::before {
@@ -171,13 +256,20 @@
             100% { transform: translate(0,0); }
         }
 
-        @keyframes flyIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        @media (max-width: 600px) {
+            .log-container {
+                width: 90%;
+            }
+            .log-entry h2 {
+                font-size: 22px;
+            }
+            .log-entry p {
+                font-size: 17px;
+            }
+            .back-box {
+                font-size: 18px;
             }
         }
-
 
     </style>
 
@@ -188,113 +280,62 @@
 <body>
 
 
-    <div class="page-wrapper"></div>
-
-        <div
-    
-        class="back-box">
-            <a href="index.html" class="nav-btn">Back to Nook</a>
-            <a href="training.html" class="nav-btn">Training Archive</a>
+    <div class="back-box">
+        <a href="index.html" class="nav-btn">Back to Nook</a>
+        <a href="training.html" class="nav-btn">Training Archive</a>
         <a href="build.html" class="nav-btn">Build Log</a>
         <a href="connection.html" class="nav-btn">Connection Ports</a>
-
-        </div>
-        
     </div>
 
- <div 
-    
-    class="text-box">
+    <div class="text-box">
          <h1>Growth Hub</h1>
-
     </div>
 
     <div class="bg"></div>
 
-    <!-- <div>
-
-    <div class="growth-container">
-    <div class="columns"></div>
-
-      <div class="left-column"></div>
-        <div class="growth-box">
-            <h2>CompTIA CySA+ - Cybersecurity Analyst</h2>
-            <p> Honing skills in threat detection, incident response, SIEM analysis, vulnerability management, 
-            and security operations. Currently providing freelance threat analysis, SIEM monitoring, and security 
-            support for client environments.</p>
-        </div>
-
-         <div class="growth-box">
-            <h2>Linux Professional Institute LPIC-1 - Linux Administrator</h2>
-            <p>Studying Linux fundamentals, system architecture, command‑line operations, package management, 
-            networking basics, and essential troubleshooting. Developing and managing projects in Ubuntu on a daily 
-            basis to deepen command‑line proficiency and practical Linux administration experience.</p>
-        </div>   
-
-        <div class="growth-box">
-            <h2>GitHub</h2>
-            <p>Active repos, version control, project documentation.</p>
-        </div>
-
-         <div class="growth-box">
-            <h2>CTF</h2>
-            <p>CTF exercises, SIEM‑style analysis, real‑world attack simulation.</p>
-        </div>
-
-      <div class="growth-container"></div>  
-      <div class="right-column"></div>
-        <div class="growth-box">
-            <h2>Web Projects</h2>
-            <p>Custom portfolio pages, booking sites, and lightweight business webpages built with clean, responsive design.</p>
-            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Web Work</a>
-        </div> 
-
-        <div class="growth-box">
-            <h2>Tech Support</h2>
-            <p>WiFi troubleshooting, router optimization, device setup, and home network stability improvements.</p>
-            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Tech Support</a>
-        </div>
-
-        <div class="growth-box">
-            <h2>Cybersecurity</h2>
-            <p>Firewall configuration, secure network setup, malware removal, and basic security hardening.</p>
-            <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="service-btn">Request Security Help</a>
-        </div>
-
-
-    </div> -->
-
     <div class="log-container">
 
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">MODULE // WORK_01</span>
+            </div>
+            <h2>Web Projects  |  $200-250</h2>
+            <p>Custom portfolio pages, booking sites, and lightweight business webpages built with clean, responsive design.</p>
+            <a href="form.html" class="service-btn">Request Web Work</a>  
+        </div>
 
-    <div class="log-entry">
-        <h2>Web Projects  |  $200-250</h2>
-        <p>Custom portfolio pages, booking sites, and lightweight business webpages built with clean, responsive design.
-        </p>
-        <a href="form.html" class="service-btn">Request Web Work</a>  
-    </div>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">MODULE // TECH_02</span>
+            </div>
+            <h2>Tech Support  |  $100</h2>
+            <p>WiFi troubleshooting, router optimization, device setup, and home network stability improvements.</p>
+            <a href="form.html" class="service-btn">Request Tech Support</a>
+        </div>
 
-    <div class="log-entry">
-        <h2>Tech Support  |  $100</h2>
-        <p>WiFi troubleshooting, router optimization, device setup, and home network stability improvements.
-        </p>
-        <a href="form.html" class="service-btn">Request Tech Support</a>
-    </div>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">MODULE // SEC_03</span>
+            </div>
+            <h2>Cybersecurity  |  $100</h2>
+            <p>Firewall configuration, secure network setup, malware removal, and basic security hardening.</p>
+            <a href="form.html" target="_blank" class="service-btn">Request Security Help</a>
+        </div>
 
-    <div class="log-entry">
-        <h2>Cybersecurity  |  $100</h2>
-        <p>Firewall configuration, secure network setup, malware removal, and basic security hardening.
-        </p>
-        <a href="form.html" target="_blank" class="service-btn">Request Security Help</a>
-    </div>
+        <div class="log-entry">
+            <div class="entry-bar">
+                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <span class="bar-tag">MODULE // CAREER_04</span>
+            </div>
+            <h2>Career Materials  |  $45</h2>
+            <p>Resume crafting and refinement, CV structuring, branded business card design, and ATS‑focused optimization.</p>
+            <a href="form.html" target="_blank" class="service-btn">Request Career Help</a>
+        </div>
 
-    <div class="log-entry">
-        <h2>Career Materials  |  $45</h2>
-        <p>Resume crafting and refinement, CV structuring, branded business card design, and ATS‑focused optimization. 
-        </p>
-        <a href="form.html" target="_blank" class="service-btn">Request Career Help</a>
     </div>
-   
 
 </body>
 

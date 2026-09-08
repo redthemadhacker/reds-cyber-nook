@@ -1,141 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Request</title>
 
+<style>
+body {
+    background-color: #000000;
+    color: #ff0000;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+}
 
-  <meta charset="UTF-8">
-  <title>Request Form</title>
-
-
-  <style>
-  body {
-  background: #0a0a0a;
-  color: #ff0000;
-  font-family: 'VT323', monospace;
-  padding: 40px;
-  text-align: center;
-  }
-
-  h1 {
+h1 {
     color: #ff0000;
     margin-bottom: 25px;
-  }
+}
 
-  form, .form {
-      width: 90% !important;
-      max-width: 450px !important;
-      margin: 30px auto !important;
-      background: #111111;
-      padding: 25px; 
-      border-radius: 10px;
-      border: 2px solid #ff0000;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-      box-sizing: border-box;
-  }
+#requestForm,
+#successMessage {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #111111;
+    border: 2px solid #ff0000;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(255,0,0,0.4);
+}
 
-  .form-group {
-      width: 100%;
-      margin-bottom: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-  }
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
 
-          .form-group label {
-              color: #ffffff;
-              font-size: 14px;
-              font-weight: bold;
-              margin-bottom: 6px;
-              text-align: left;
-          }
+label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-          .form-group input,
-          .form-group textarea {
-              width: 100% !important;
-              padding: 10px;
-              border: 2px solid #ff0000;
-              background-color: #ffffff !important; 
-              color: #000000 !important;            
-              border-radius: 6px;
-              font-size: 15px;
-              box-sizing: border-box;
-          }
-
-          .form-group input::placeholder,
-          .form-group textarea::placeholder {
-              color: #666666;
-          }
-
-          .form button,
-          form button {
-              width: 100%;
-              background-color: #ff0000;
-              color: #ffffff;
-              padding: 12px;
-              font-size: 16px;
-              font-weight: bold;
-              border: none;
-              border-radius: 6px;
-              cursor: pointer;
-              margin-top: 10px;
-          }
-
-  .button {
+input,
+textarea {
+    width: 100%;
     padding: 12px;
+    border: 2px solid #ff0000;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #000000;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
     background: #ff0000;
-    color: #fff;
-    font-weight: 700;
+    color: #ffffff;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
     font-size: 16px;
-    font-family: 'VT323', monospace;
-    transition: background 0.2s ease;
-  }
+    font-weight: bold;
+    cursor: pointer;
+}
 
-  .button:hover {
-    background: #ff3333;
-  }
+.submit-btn:hover {
+    background: #cc0000;
+}
 
+#successMessage {
+    display: none;
+}
 
-  </style>
+#successMessage h2 {
+    color: #00ff00;
+    margin-bottom: 15px;
+}
 
+.return-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: #ff0000;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: 3px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #ff0000;
+    transition: 0.3s;
+}
 
+.return-btn:hover {
+    background: #cc0000;
+    box-shadow: 0 0 25px #ff0000;
+}
+</style>
 </head>
-
 
 <body>
 
+<h1>Service Request</h1>
 
-  <h1>Service Request</h1>
+<form id="requestForm" action="https://formspree.io/f/xppalepv" method="POST">
 
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+    </div>
 
-  <form action="https://formspree.io/f/xppalepv" method="POST">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
 
-  <div class="form">
-    <div class="label">Name</div>
-    <input type="text" name="name" required>
-  </div>
+    <div class="form-group">
+        <label>Request</label>
+        <textarea name="message" required></textarea>
+    </div>
 
-  <div class="form">
-    <div class="label">Email</div>
-    <input type="email" name="email" required>
-  </div>
+    <button type="submit" class="submit-btn">
+        Submit Request
+    </button>
 
-  <div class="form">
-    <div class="label">Request</div>
-    <textarea name="message" required></textarea>
-  </div>
+</form>
 
-  <button class="button">Done</button>
-  </form>
+<div id="successMessage">
+    <h2>✅ REQUEST SENT!</h2>
 
-  <div id="result"></div>
+    <p style="color:white;">
+        Thank you for your submission.<br>
+        We have received your request.
+    </p>
 
+    <a href="https://reds-cyber-nook-a2ae0b8c4979.herokuapp.com/growth.html" target="_blank">RETURN TO WEBSITE</a>
+
+</div>
+
+<script>
+document.getElementById("requestForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const form = this;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            form.style.display = "none";
+            document.getElementById("successMessage").style.display = "block";
+            form.reset();
+        } else {
+            alert("There was an error submitting the form.");
+        }
+    } catch (error) {
+        alert("There was an error submitting the form.");
+    }
+});
+</script>
 
 </body>
-
-
 </html>

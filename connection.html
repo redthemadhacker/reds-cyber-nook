@@ -6,6 +6,7 @@
 
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Red's Cyber Nook</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/6783/6783360.png">
@@ -22,11 +23,12 @@
         }
 
         body {
-           background-repeat no-repeat;
+           background-repeat: no-repeat;
            background-position: center;
            background-size: cover;
            background-color: #333333;
-           overflow: hidden; 
+           overflow-x: hidden;
+           overflow-y: auto; 
            position: relative;
            background-attachment: fixed;
            background-image: url("https://i.pinimg.com/736x/c2/c2/10/c2c21067269ee6b6c0f30be4840f00fa.jpg");
@@ -50,7 +52,7 @@
            font-size: 50px;
            white-space: nowrap;
            border-right: 3px solid #000000;
-           animation: typing 05s steps(20), blink 0.7s infinite;
+           animation: typing 0.5s steps(20), blink 0.7s infinite;
         }
         @keyframes typing {
              from { width: 0; }
@@ -70,14 +72,12 @@
             flex-direction: column;
             display: flex;
             text-align: center;
-            font-size: 24px;;
+            font-size: 24px;
         }
 
         .image-map {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            margin: 0 auto 120px auto;
             width: 90%;
             max-width: 700px;
             text-align: center;
@@ -86,22 +86,30 @@
             align-items: center;
         }
 
+        .image-container {
+            position: relative;
+            width: 100%;
+            display: inline-block;
+        }
+
         .image-map img {
-             width: 100%;
+            width: 100%;
+            height: auto;
             display: block;
         }
 
         .spot {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 12%;
+            height: 25%;
+            top: 52%;
             cursor: pointer;
         }
 
-        .spot-resume { top: 54%; left: 4%;}
-        .spot-phone { top: 54%; left: 31%; }
-        .spot-email { top: 54%; left: 58%; }
-        .spot4 { top: 54%; left: 84%; }
+        .spot-resume { left: 4.5%; }
+        .spot-phone { left: 29.5%; }
+        .spot-email { left: 54.5%; }
+        .spot4 { left: 79.5%; }
 
         .spot:hover {
             box-shadow: 0 0 20px #ff0000;
@@ -109,7 +117,7 @@
             background: rgba(255,0,0,0.3);
         }         
 
-                .nav-btn:active::before {
+        .nav-btn:active::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -131,9 +139,8 @@
             75% { transform: translate(-3px, 5px); }
             100% { transform: translate(0,0); }
         }
-  
 
-          .nav-btn {
+        .nav-btn {
             position: relative;
             overflow: hidden;
         }
@@ -142,8 +149,32 @@
             font-size: 35px;
             color:#ff0000;
             text-align: center;
-           white-space: nowrap;
-           font-family: 'VT323', monospace;
+            white-space: nowrap;
+            font-family: 'VT323', monospace;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .image-title {
+                font-size: 24px;
+                white-space: normal;
+            }
+
+            .back-box {
+                right: 8px;
+                bottom: 8px;
+                font-size: 18px;
+            }
+        }
+
+        @keyframes flyIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
     </style>
@@ -176,11 +207,13 @@
     
         class="image-map">
           <h2 class="image-title">Plug in! Choose a port to connect 🔌</h2>
+          <div class="image-container">
             <img src="https://paleblueearth.com/cdn/shop/articles/USB_Ports_1000x.webp?v=1754335060" alt="map">
             <a href="James_A.pdf" target="_blank" class="spot spot-resume"></a>
             <a href="tel:9856451621" class="spot spot-phone"></a>
             <a href="mailto:marbusiness98@gmail.com?subject=Contact%20Amari&body=Hey%20Amari," class="spot spot-email"></a>
             <a href="https://linkedin.com/in/amari-james" class="spot spot4"></a>
+          </div>
 
         </div>
         

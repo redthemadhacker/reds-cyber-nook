@@ -22,7 +22,7 @@
         }
 
         body {
-           background-repeat no-repeat;
+           background-repeat: no-repeat;
            background-position: center;
            background-size: cover;
            background-color: #333333;
@@ -53,8 +53,19 @@
            white-space: nowrap;
            border-right: 3px solid #000000;
            margin-top: 40px;
-           animation: typing 05s steps(20), blink 0.7s infinite;
+           display: inline-block;
+           opacity: 0;
+           transform: translateX(-100px);
+           animation: slideInLeft 0.8s ease-out forwards, typing 0.5s steps(20), blink 0.7s infinite;
         }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         @keyframes typing {
              from { width: 0; }
              to { width: 100%; }
@@ -126,7 +137,7 @@
             z-index: -1;
         }   
 
-                .nav-btn:active::before {
+        .nav-btn:active::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -149,7 +160,7 @@
             100% { transform: translate(0,0); }
         }
   
-          .nav-btn {
+        .nav-btn {
             position: relative;
             overflow: hidden;
         }
@@ -186,8 +197,8 @@
 
     <div class="log-entry">
         <h2>Education</h2>
-            <a href="secert.pdf" target="_blank">General Assembly</a>- Full Stack Software Engineer  |  </a>
-            <a href="cysacert.pdf" target="_blank">Per Scholas</a>- Cybersecurity Analyst</a>
+            <a href="secert.pdf" target="_blank">General Assembly</a>- Full Stack Software Engineer  |  
+            <a href="cysacert.pdf" target="_blank">Per Scholas</a>- Cybersecurity Analyst
     </div>
 
     <div class="log-entry">
@@ -219,6 +230,9 @@
     <div class="log-entry">
         <h2><a href="catz.pdf" target="_blank">Outside Catz Facilities</a>- Operations Manager/IT Programmer</h2>
             <p>Website administration, remote operations management, process automation.</p>
+    </div>
+
+    </div>
 
 </body>
 

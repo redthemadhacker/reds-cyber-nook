@@ -6,6 +6,7 @@
 
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Red's Cyber Nook</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/6783/6783360.png">
@@ -22,7 +23,7 @@
         }
 
         body {
-           background-repeat no-repeat;
+           background-repeat: no-repeat;
            background-position: center;
            background-size: cover;
            background-color: #333333;
@@ -53,7 +54,7 @@
            white-space: nowrap;
            border-right: 3px solid #000000;
            margin-top: 40px;
-           animation: typing 05s steps(20), blink 0.7s infinite;
+           animation: typing 0.5s steps(20), blink 0.7s infinite;
         }
         @keyframes typing {
              from { width: 0; }
@@ -64,54 +65,23 @@
              50% { border-color: transparent; }
         }
 
+        .instruction-text {
+            font-size: 24px;
+            color: #000000;
+            margin: -20px 0 20px 0;
+        }
+
         .back-box {
             position: fixed;
             right: 12px;
             bottom: 12px;
-            color: #ff0000;
+            color: #000000;
             font-family: 'VT323', monospace;
             flex-direction: column;
             display: flex;
-            transform: translateX(-50%);
-            font-size: 24px;
-        }
-
-        .log-container {
-            width: 80%;
-            max-width: 900px;
-            margin: 40px auto;
-            margin-top: 100px;
-        }
-
-        .log-entry {
-            opacity: 0;
-            transform: translateY(40px);
-            animation: flyIn 0.8s ease-out forwards;
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #000000;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #000000;
             text-align: center;
-        }
-
-        @keyframes flyIn {
-            to {
-            opacity: 1;
-            transform: translateY(0);
-            }
-        }
-
-        .log-entry:nth-child(1) { animation-delay: .5s; }
-        .log-entry:nth-child(2) { animation-delay: 1s; }
-        .log-entry:nth-child(3) { animation-delay: 1.5s; }
-        .log-entry:nth-child(4) { animation-delay: 2s; }
-        .log-entry:nth-child(5) { animation-delay: 2.5s; }
-
-
-        ul {
-            margin: 10px 0 0 20px;
+            font-size: 24px;
+            z-index: 100;
         }
 
         .bg {
@@ -127,7 +97,7 @@
             z-index: -1;
         }   
 
-                .nav-btn:active::before {
+        .nav-btn:active::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -158,9 +128,177 @@
              80% { transform: translateX(-2px); }
              100% { transform: none; }
         }
-          .nav-btn {
+        .nav-btn {
             position: relative;
             overflow: hidden;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            width: 95%;
+            max-width: 1100px;
+            aspect-ratio: 16 / 10;
+            margin: 20px auto 100px auto;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: flyIn 0.8s ease-out forwards;
+        }
+
+        @keyframes flyIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-top-left {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            animation-delay: .5s;
+        }
+
+        .card-top-right {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            animation-delay: 1s;
+        }
+
+        .card-center-square {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            animation-delay: 1.5s;
+        }
+
+        .card-bottom-left {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            animation-delay: 2s;
+        }
+
+        .card-bottom-right {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+            animation-delay: 2.5s;
+        }
+
+        .card-flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            cursor: pointer;
+            border-radius: 10px;
+            border: 2px solid #000000;
+            box-shadow: 0 0 15px #000000;
+        }
+
+        .card-flipper.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+        }
+
+        .card-front {
+            z-index: 2;
+        }
+
+        .card-back {
+            background-color: #000000;
+            color: #ffffff;
+            transform: rotateY(180deg);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.2;
+            border: 1px solid #ff0000;
+            overflow-y: auto;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-family: 'VT323', monospace;
+            text-align: center;
+            white-space: nowrap;
+            border: 1px solid #000000;
+            text-decoration: none;
+            z-index: 5;
+        }
+
+        .card-overlay:hover {
+            background: #ff0000;
+            color: #000000;
+        }
+
+        /* Mobile Responsive Scaling */
+        @media (max-width: 600px) {
+            .portfolio-grid {
+                width: 90%;
+                gap: 10px;
+                aspect-ratio: auto;
+            }
+
+            .card-overlay {
+                font-size: 0.95rem;
+                padding: 4px 6px;
+            }
+
+            .card-back {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .back-box {
+                right: 5px;
+                bottom: 5px;
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .instruction-text {
+                font-size: 18px;
+            }
         }
 
     </style>
@@ -179,6 +317,10 @@
 
     </div>
 
+    <div class="instruction-text">
+        Click any card to flip and view the log description. Click the title button to launch the site! ⚡
+    </div>
+
     <div
     
     class="back-box">
@@ -191,50 +333,72 @@
 
     <div class="bg"></div>
 
-    <div class="log-container">
+    <div class="portfolio-grid">
 
-    <div class="log-entry">
-        <h2><a href="https://github.com/redthemadhacker" target="_blank">GitHub</a></h2>
-        <p>Active repos, version control, project documentation.
-        </p>
-    </div>
+        <div class="card-container card-top-left">
+            <div class="card-flipper" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR67B6e-gmWHyDj6lo-VxKtObIerazLuZMrfOmE2s8Stbo25Xn1UfXNxaM&s=10" alt="GitHub" class="card-img">
+                    <a href="https://github.com/redthemadhacker" target="_blank" class="card-overlay" onclick="event.stopPropagation()">GitHub</a>
+                </div>
+                <div class="card-back">
+                    Central repository terminal holding active tools, source scripts, and deployment experiments.
+                </div>
+            </div>
+        </div>
 
-    <div class="log-entry">
-        <h2><a href="https://learn.cylabacademy.org/users/redthemadhacker" target="_blank">CyLab</a></h2>
-        <p>CTF exercises, SIEM‑style analysis, real‑world attack simulation.
-        </p>
-    </div>
+        <div class="card-container card-top-right">
+            <div class="card-flipper" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">
+                    <img src="https://cdn.nulab.com/learn-wp/app/uploads/2019/05/14210442/Nulab-Capture-the-Flag-CTF-Challenge-Blog.png" alt="CyLab" class="card-img">
+                    <a href="https://learn.cylabacademy.org/users/redthemadhacker" target="_blank" class="card-overlay" onclick="event.stopPropagation()">CyLab</a>
+                </div>
+                <div class="card-back">
+                    Cybersecurity training modules, interactive CTF challenge logs, and hands-on lab exercises.
+                </div>
+            </div>
+        </div>
 
-      <div class="log-entry">
-        <h2><a href="https://pdrbyeddie-c9dcdea3495f.herokuapp.com/index.html" target="_blank">PDR by Eddie</a>- Client Project</h2>
-        <p> Solo commercial website project built with HTML, CSS, and JavaScript, then deployed live on Heroku for a local Paintless Dent Repair business. 
-        To serve the static frontend seamlessly on Heroku without Node.js, the backend was configured using Python, Flask, and Gunicorn to handle routing. 
-        The platform features an interactive flip-card gallery with a full-screen image expansion modal, custom glitch CSS hover effects, and a Formspree-powered 
-        hotline form configured with mobile camera support so customers can send direct photo quote requests. Achieving full mobile-responsiveness required extensive 
-        custom CSS work and layout experimentation—fine-tuning Flexbox containers, resolving fixed-width horizontal overflow, and adjusting overlays so text stays sharp 
-        against the dark aesthetic across every viewport. The site is currently hosted on a live Heroku staging environment, awaiting client approval to connect their owned 
-        custom domain for final launch.
-        </p> 
-    </div>
-        <div class="log-entry">
-        <h2><a href="image-view.html" target="_blank">Irezumi</a>- Team Project</h2>
-        <p> Collaborative full‑stack tattoo networking app built with React, Bootstrap, MongoDB, and Cloudinary. 
-            Our team engineered all frontend components, backend logic, authentication flows, and media handling, 
-            while integrating an existing API for artist data and location‑based discovery. The platform supported 
-            full user profiles with profile pictures, secure account creation, artist portfolios, and a review system — 
-            giving clients and local tattoo artists a social‑style space to connect.
-        </p>    
-    </div>
+        <div class="card-container card-center-square">
+            <div class="card-flipper" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">
+                    <img src="https://static.wixstatic.com/media/90a441_4d23b88c0ab3440d938b6f61b6dd045f~mv2.jpg/v1/fill/w_300,h_282,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_4d23b88c0ab3440d938b6f61b6dd045f~mv2.jpg" alt="PDR by Eddie" class="card-img">
+                    <a href="https://pdrbyeddie-c9dcdea3495f.herokuapp.com/index.html" target="_blank" class="card-overlay" onclick="event.stopPropagation()">PDR by Eddie</a>
+                </div>
+                <div class="card-back">
+                    Custom company website for paintless dent repair business. Features a flip-card gallery with image modal, 
+                    glitch hover effects, and a Formspree photo-quote form with mobile camera support. Custom Flexbox layout
+                    engineered for full mobile responsiveness across all viewports. Live on Heroku staging pending domain setup.
+                </div>
+            </div>
+        </div>
 
-        <div class="log-entry">
-        <h2><a href="image-view.html" target="_blank">HZHQ</a>- Solo Project</h2>
-        <p> Solo full‑stack project built with Express and Node.js, written in HTML, CSS, and JavaScript. The app allowed 
-            users to create secure accounts, explore Hertz‑frequency audio categories (sleep, meditation, manifestation, 
-            and more), and save their favorite tracks. Integrated the YouTube API to stream frequency content directly in‑app, 
-            with custom logic for user profiles, authentication, and personalized frequency libraries. Developed independently as 
-            part of my SE certification.
-        </p> 
-    </div>
+        <div class="card-container card-bottom-left">
+            <div class="card-flipper" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">
+                    <img src="https://kutsbykal-3b819444b5a5.herokuapp.com/kal.jpeg" alt="Kutz by Kal" class="card-img">
+                    <a href="https://kutsbykal-3b819444b5a5.herokuapp.com/" target="_blank" class="card-overlay" onclick="event.stopPropagation()">Kutz by Kal</a>
+                </div>
+                <div class="card-back">
+                    Custom sewing portfolio to display custom threadwork. Features an interactive estimate request form, smooth 
+                    hidden-slide card transitions, full-screen image expansion modals, and a clean responsive layout optimized 
+                    for mobile viewports.
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container card-bottom-right">
+            <div class="card-flipper" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn7Xirl1coLGdihJOj4BXpoRS3LC3l4JLwzk-V7Q1AvQ8bwqEMy-jZPIY&s=10" alt="HZHQ" class="card-img">
+                    <a href="image-view.html" target="_blank" class="card-overlay" onclick="event.stopPropagation()">HZHQ</a>
+                </div>
+                <div class="card-back">
+                    Full-stack Express/Node.js app built with HTML, CSS, and JS for SE certification. Features secure user 
+                    authentication, YouTube API integration for streaming Hertz-frequency audio, and custom saved libraries.
+                </div>
+            </div>
+        </div>
 
     </div>
 

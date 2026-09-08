@@ -3,32 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Service Request</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<title>All Nyte, All Byte // Service Request</title>
 
 <style>
 body {
-    background-color: #000000;
+    background-color: #1a0000;
     color: #ff0000;
-    font-family: Arial, sans-serif;
+    font-family: 'VT323', monospace;
     text-align: center;
-    padding: 40px;
+    padding: 20px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmxN6k40zOiIy7XiYhx-g9g7WAT-Dm_YbRe3O-KCXGXg2DSBF7Sm8UNd_&s=10");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.os-window {
+    width: 100%;
+    max-width: 550px;
+    background: rgba(10, 0, 0, 0.95);
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: left;
+}
+
+.os-titlebar {
+    background: #ff0000;
+    color: #000000;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    user-select: none;
+}
+
+.os-title-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.os-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.os-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.os-content {
+    padding: 25px;
 }
 
 h1 {
     color: #ff0000;
-    margin-bottom: 25px;
-}
-
-#requestForm,
-#successMessage {
-    width: 90%;
-    max-width: 500px;
-    margin: 0 auto;
-    background: #111111;
-    border: 2px solid #ff0000;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 0 20px rgba(255,0,0,0.4);
+    margin-top: 0;
+    font-size: 28px;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+    padding-bottom: 8px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
 }
 
 .form-group {
@@ -38,111 +89,166 @@ h1 {
 
 label {
     display: block;
-    color: #ffffff;
+    color: #dddddd;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-size: 20px;
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #ff0000;
-    border-radius: 6px;
-    background: #ffffff;
-    color: #000000;
+    padding: 10px 12px;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
     box-sizing: border-box;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
 }
 
 textarea {
-    min-height: 120px;
+    min-height: 100px;
     resize: vertical;
 }
 
 .submit-btn {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     background: #ff0000;
-    color: #ffffff;
+    color: #000000;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 4px;
+    font-size: 22px;
+    font-family: 'VT323', monospace;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .submit-btn:hover {
-    background: #cc0000;
+    background: #ffffff;
+    color: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
 }
 
 #successMessage {
     display: none;
+    text-align: center;
 }
 
 #successMessage h2 {
     color: #00ff00;
-    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 28px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.4);
 }
 
 .return-btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 15px 30px;
+    padding: 10px 20px;
     background: #ff0000;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
-    border: 3px solid #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 15px #ff0000;
-    transition: 0.3s;
+    font-size: 20px;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
 .return-btn:hover {
-    background: #cc0000;
-    box-shadow: 0 0 25px #ff0000;
+    background: #ffffff;
+    color: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+.os-footer {
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 6px 15px;
+    font-size: 16px;
+    color: #888888;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #00ff00;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 6px #00ff00;
+    margin-right: 5px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Service Request</h1>
-
-<form id="requestForm" action="https://formspree.io/f/xppalepv" method="POST">
-
-    <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" required>
+<div class="os-window">
+    <div class="os-titlebar">
+        <div class="os-title-left">
+            <div class="os-dots">
+                <div class="os-dot"></div>
+                <div class="os-dot"></div>
+                <div class="os-dot"></div>
+            </div>
+            <span>INTAKE_PORTAL // ALL_NYTE,_ALL_BYTE</span>
+        </div>
+        <span>[ACTIVE]</span>
     </div>
 
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" required>
+    <div class="os-content">
+        <form id="requestForm" action="https://formspree.io/f/xppalepv" method="POST">
+            <h1>Service Request</h1>
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Request Details</label>
+                <textarea name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Transmit Request ->
+            </button>
+        </form>
+
+        <div id="successMessage">
+            <h2>✅ REQUEST TRANSMITTED</h2>
+
+            <p style="color:#dddddd; font-size: 20px; line-height: 1.4;">
+                Transmission successful.<br>
+                Your request has been logged in the system.
+            </p>
+
+            <a href="https://reds-cyber-nook-a2ae0b8c4979.herokuapp.com/growth.html" class="return-btn">RETURN TO BYTE LAB</a>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Request</label>
-        <textarea name="message" required></textarea>
+    <div class="os-footer">
+        <div><span class="status-dot"></span>SYS_ONLINE</div>
+        <div>SECURE_CHANNEL</div>
     </div>
-
-    <button type="submit" class="submit-btn">
-        Submit Request
-    </button>
-
-</form>
-
-<div id="successMessage">
-    <h2>✅ REQUEST SENT!</h2>
-
-    <p style="color:white;">
-        Thank you for your submission.<br>
-        We have received your request.
-    </p>
-
-    <a href="https://reds-cyber-nook-a2ae0b8c4979.herokuapp.com/growth.html" target="_blank">RETURN TO WEBSITE</a>
-
 </div>
 
 <script>
@@ -166,10 +272,10 @@ document.getElementById("requestForm").addEventListener("submit", async function
             document.getElementById("successMessage").style.display = "block";
             form.reset();
         } else {
-            alert("There was an error submitting the form.");
+            alert("Transmission error. Please try again.");
         }
     } catch (error) {
-        alert("There was an error submitting the form.");
+        alert("Transmission error. Please try again.");
     }
 });
 </script>

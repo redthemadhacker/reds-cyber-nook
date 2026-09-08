@@ -1,190 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <title>Growth Hub - Red's Cyber Nook</title>
+    <title>3AM Byte Lab // Operations Hub</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/6783/6783360.png">
 
-
     <style>
-        
         html, body {
            margin: 0;
            padding: 0;
            height: 100%;
            width: 100%;
+           box-sizing: border-box;
         }
 
         body {
            background-repeat: no-repeat;
            background-position: center;
            background-size: cover;
-           background-color: #333333;
-           overflow-y: auto; 
-           position: relative;
-           margin: 0;
-           padding: 0;
+           background-color: #1a0000;
+           overflow-x: hidden;
            font-family: 'VT323', monospace;
-           color: #000000;
-           text-align: center; 
+           color: #ff0000;
            background-attachment: fixed;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: flex-start;
+           padding: 15px;
         }
 
-        .text-box {
-            text-align: center;
-            position: relative;
-            font-family: 'VT323', monospace;
-            margin: 20px auto 20px auto;
-            max-width: 700px;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: flyIn 0.8s ease-out forwards;
-            color:#ff0000;
-        }    
-        
-        h1 {
-           text-align: center;
-           font-size: clamp(2.2rem, 5vw, 3.5rem);
-           white-space: nowrap;
-           border-right: 3px solid #ff0000;
-           margin: 10px 0;
-           display: inline-block;
-           animation: typing 0.5s steps(20), blink 0.7s infinite;
-        }
-
-        @keyframes typing {
-             from { width: 0; }
-             to { width: 100%; }
-        }
-
-        @keyframes blink {
-             50% { border-color: transparent; }
-        }
-
-        .back-box {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 20px 10px 0 10px;
+        .os-window {
             width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 100;
-            font-size: 24px;
-        }
-
-        .log-container {
-            width: 85%;
-            max-width: 900px;
-            margin: 20px auto 100px auto;
+            max-width: 950px;
+            background: rgba(10, 0, 0, 0.92);
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
             display: flex;
             flex-direction: column;
-            gap: 20px;
-        }
-
-        .log-entry {
-            opacity: 0;
-            transform: translateY(40px);
+            margin: auto 0;
+            overflow: hidden;
             animation: flyIn 0.8s ease-out forwards;
-            background: rgba(0, 0, 0, 0.85);
-            border: 2px solid #000000;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-            text-align: left;
-            color: #ffffff;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .log-entry:hover {
-            transform: translateY(-3px);
-            border-color: #ff0000;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-        }
-
-        .entry-bar {
+        .os-titlebar {
+            background: #ff0000;
+            color: #000000;
+            padding: 8px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 6px;
-            margin-bottom: 12px;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 1px;
+            user-select: none;
         }
 
-        .dots {
+        .os-title-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .os-dots {
             display: flex;
             gap: 6px;
         }
 
-        .dot {
-            width: 8px;
-            height: 8px;
+        .os-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #000000;
             border-radius: 50%;
-            background-color: #ff0000;
-            box-shadow: 0 0 4px #ff0000;
         }
 
-        .bar-tag {
-            font-size: 14px;
+        .os-navbar {
+            display: flex;
+            border-bottom: 2px solid #ff0000;
+            background: rgba(0, 0, 0, 0.6);
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: transparent;
             color: #ff0000;
-            letter-spacing: 1px;
-        }
-
-        .log-entry h2 {
-            margin: 0 0 10px 0;
-            font-size: 26px;
-            color: #ff0000;
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
-        }
-
-        .log-entry p {
-            margin: 0 0 15px 0;
+            border: none;
+            border-right: 1px solid rgba(255, 0, 0, 0.3);
+            font-family: 'VT323', monospace;
             font-size: 20px;
-            line-height: 1.3;
-            color: #dddddd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
         }
 
-        .service-btn {
-            display: inline-block;
+        .nav-tab:hover, .nav-tab.active {
             background: #ff0000;
-            color: #ffffff;
-            border: 1px solid #000000;
-            padding: 6px 14px;
+            color: #000000;
+            text-shadow: none;
+        }
+
+        .os-content {
+            padding: 25px;
+            min-height: 400px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .service-card {
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            padding: 15px;
             border-radius: 6px;
-            text-decoration: none;
-            font-size: 18px;
+            text-align: left;
             transition: all 0.2s ease;
         }
 
-        .service-btn:hover {
-            background: #000000;
-            color: #ff0000;
+        .service-card:hover {
             border-color: #ff0000;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+            background: rgba(255, 0, 0, 0.1);
         }
 
-        @keyframes flyIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed rgba(255, 0, 0, 0.3);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: #ff3333;
         }
 
-        .log-entry:nth-child(1) { animation-delay: .3s; }
-        .log-entry:nth-child(2) { animation-delay: .6s; }
-        .log-entry:nth-child(3) { animation-delay: .9s; }
-        .log-entry:nth-child(4) { animation-delay: 1.2s; }
+        .service-price {
+            background: #ff0000;
+            color: #000000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+
+        .service-desc {
+            font-size: 18px;
+            color: #dddddd;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+        }
+
+        .action-btn {
+            display: inline-block;
+            background: #ff0000;
+            color: #000000;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #ffffff;
+            color: #ff0000;
+            box-shadow: 0 0 8px #ff0000;
+        }
+
+        .terminal-text {
+            font-size: 20px;
+            color: #dddddd;
+            line-height: 1.4;
+            text-align: left;
+            margin: 0;
+        }
+
+        .terminal-text h2 {
+            color: #ff0000;
+            font-size: 26px;
+            margin-top: 0;
+            border-bottom: 1px solid #ff0000;
+            padding-bottom: 5px;
+        }
+
+        .highlight {
+            color: #ff0000;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
+        }
+
+        .os-footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 0, 0, 0.3);
+            padding: 6px 15px;
+            font-size: 16px;
+            color: #888888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 6px #00ff00;
+            margin-right: 5px;
+        }
 
         .bg {
             position: fixed;
@@ -197,138 +247,143 @@
             background-repeat: no-repeat;
             background-position: center;
             z-index: -1;
-        }   
-
-        .nav-btn {
-            position: relative;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.85);
-            color: #ff0000;
-            border: 2px solid #000000;
-            padding: 6px 12px;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.2s ease;
+            filter: brightness(0.6);
         }
 
-        .nav-btn:hover {
-            background: #ff0000;
-            color: #000000;
-            border-color: #ff0000;
-            box-shadow: 0 0 10px #ff0000;
-        }
-
-        .nav-btn:active::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                #ff0000,
-                #ff0000 2px,
-                #000 2px,
-                #000 4px
-            );
-            animation: glitch-explode 1s steps(4);
-            opacity: 0.8;
-        }
-
-        @keyframes glitch-explode {
-            0% { transform: translate(0,0); }
-            25% { transform: translate(-6px, 3px); }
-            50% { transform: translate(4px, -4px); }
-            75% { transform: translate(-3px, 5px); }
-            100% { transform: translate(0,0); }
-        }
-
-        @media (max-width: 600px) {
-            .log-container {
-                width: 90%;
+        @keyframes flyIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            .log-entry h2 {
-                font-size: 22px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
             }
-            .log-entry p {
+            .os-window {
+                max-width: 100%;
+                margin: 5px;
+            }
+            .nav-tab {
                 font-size: 17px;
-            }
-            .back-box {
-                font-size: 18px;
-                gap: 8px;
-            }
-            .service-btn {
-                font-size: 16px;
-                width: 100%;
-                text-align: center;
-                box-sizing: border-box;
+                padding: 8px 4px;
             }
         }
-
     </style>
-
-
 </head>
-
 
 <body>
 
-    <div class="back-box">
-        <a href="index.html" class="nav-btn">Back to Nook</a>
-        <a href="training.html" class="nav-btn">Training Archive</a>
-        <a href="build.html" class="nav-btn">Build Log</a>
-        <a href="connection.html" class="nav-btn">Connection Ports</a>
-    </div>
-
-    <div class="text-box">
-         <h1>Growth Hub</h1>
-    </div>
-
     <div class="bg"></div>
 
-    <div class="log-container">
-
-        <div class="log-entry">
-            <div class="entry-bar">
-                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <span class="bar-tag">MODULE // WORK_01</span>
+    <div class="os-window">
+        <div class="os-titlebar">
+            <div class="os-title-left">
+                <div class="os-dots">
+                    <div class="os-dot"></div>
+                    <div class="os-dot"></div>
+                    <div class="os-dot"></div>
+                </div>
+                <span>ALL_NYTE_ALL_BYTE// SEC_OPS_V3.2</span>
             </div>
-            <h2>Web Projects  |  $200-250</h2>
-            <p>Custom portfolio pages, booking sites, and lightweight business webpages built with clean, responsive design.</p>
-            <a href="form.html" class="service-btn">Request Web Work</a>  
+            <span>[ONLINE]</span>
         </div>
 
-        <div class="log-entry">
-            <div class="entry-bar">
-                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <span class="bar-tag">MODULE // TECH_02</span>
-            </div>
-            <h2>Tech Support  |  $100</h2>
-            <p>WiFi troubleshooting, router optimization, device setup, and home network stability improvements.</p>
-            <a href="form.html" class="service-btn">Request Tech Support</a>
+        <div class="os-navbar">
+            <button class="nav-tab active" onclick="switchTab(event, 'services-pane')">>> MODULES</button>
+            <button class="nav-tab" onclick="switchTab(event, 'about-pane')">>> ABOUT_LAB</button>
+            <button class="nav-tab" onclick="switchTab(event, 'contact-pane')">>> TRANSMIT</button>
+            <a href="index.html" class="nav-tab" style="text-decoration: none; color: inherit;"><< EXIT_TO_NOOK</a>
         </div>
 
-        <div class="log-entry">
-            <div class="entry-bar">
-                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <span class="bar-tag">MODULE // SEC_03</span>
+        <div class="os-content">
+            
+            <div id="services-pane" class="tab-pane active">
+                <div class="services-grid">
+                    
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span>CYBER_SEC</span>
+                            <span class="service-price">$100</span>
+                        </div>
+                        <p class="service-desc">Firewalls, network vulnerability audits, secure hardening, and malware cleanup.</p>
+                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span>WEB_DEV</span>
+                            <span class="service-price">$200-250</span>
+                        </div>
+                        <p class="service-desc">Custom landing pages, full-stack business sites, and responsive web systems.</p>
+                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span>TECH_SUP</span>
+                            <span class="service-price">$100</span>
+                        </div>
+                        <p class="service-desc">Home network optimization, WiFi diagnostic fixes, and core hardware setup.</p>
+                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span>CAREER_ATS</span>
+                            <span class="service-price">$45</span>
+                        </div>
+                        <p class="service-desc">ATS-friendly resume restructuring, professional CVs, and custom branding.</p>
+                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                    </div>
+
+                </div>
             </div>
-            <h2>Cybersecurity  |  $100</h2>
-            <p>Firewall configuration, secure network setup, malware removal, and basic security hardening.</p>
-            <a href="form.html" target="_blank" class="service-btn">Request Security Help</a>
+
+            <div id="about-pane" class="tab-pane">
+                <div class="terminal-text">
+                    <h2>SYSTEM LOG // THE_OPERATOR</h2>
+                    <p>Welcome to <span class="highlight">3AM Byte Lab</span>. Built in the dark and secured by design, this is an independent digital studio crafted for fast builds, clean code, and ironclad cybersecurity protocols.</p>
+                    <p>Whether you need your network locked down, a fresh web application built from the ground up, or a resume overhaul that beats the automated filters—it's handled here with precise execution.</p>
+                    <p style="color: #ff0000; margin-top: 15px;">root@3ambytelab:~# status: operational and ready for deployment.</p>
+                </div>
+            </div>
+
+            <div id="contact-pane" class="tab-pane">
+                <div class="terminal-text">
+                    <h2>SECURE CHANNELS // DIRECT_LINK</h2>
+                    <p>Ready to lock in a build or audit? Submit your project specs straight through the intake portal.</p>
+                    <p>Direct Portal: <a href="form.html" class="highlight" style="text-decoration: underline;">Open Intake Form</a></p>
+                    <p>Main Nook Hub: <a href="index.html" class="highlight" style="text-decoration: underline;">Return to Red's Cyber Nook</a></p>
+                </div>
+            </div>
+
         </div>
 
-        <div class="log-entry">
-            <div class="entry-bar">
-                <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <span class="bar-tag">MODULE // CAREER_04</span>
-            </div>
-            <h2>Career Materials  |  $45</h2>
-            <p>Resume crafting and refinement, CV structuring, branded business card design, and ATS‑focused optimization.</p>
-            <a href="form.html" target="_blank" class="service-btn">Request Career Help</a>
+        <div class="os-footer">
+            <div><span class="status-dot"></span>SYS_READY // 3AM_EDITION</div>
+            <div>SECURE_PROTOCOL: ACTIVE</div>
         </div>
-
     </div>
 
-</body>
+    <script>
+        function switchTab(evt, paneId) {
+            const panes = document.getElementsByClassName("tab-pane");
+            for (let i = 0; i < panes.length; i++) {
+                panes[i].classList.remove("active");
+            }
 
+            const tabs = document.getElementsByClassName("nav-tab");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            document.getElementById(paneId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
 
 </html>

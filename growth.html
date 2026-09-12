@@ -176,6 +176,12 @@
             line-height: 1.2;
         }
 
+        .action-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
         .action-btn {
             display: inline-block;
             background: #ff0000;
@@ -191,6 +197,18 @@
         .action-btn:hover {
             background: #ffffff;
             color: #ff0000;
+            box-shadow: 0 0 8px #ff0000;
+        }
+
+        .action-btn-alt {
+            background: transparent;
+            color: #ff0000;
+            border: 1px solid #ff0000;
+        }
+
+        .action-btn-alt:hover {
+            background: #ff0000;
+            color: #000000;
             box-shadow: 0 0 8px #ff0000;
         }
 
@@ -308,7 +326,10 @@
                             <span class="service-price">$200-250</span>
                         </div>
                         <p class="service-desc">Custom landing pages, full-stack business sites, and responsive web systems.</p>
-                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                        <div class="action-btn-group">
+                            <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                            <a href="build.html" class="action-btn action-btn-alt">VIEW PAST BUILDS -></a>
+                        </div>
                     </div>
 
                     <div class="service-card">
@@ -317,7 +338,9 @@
                             <span class="service-price">$100</span>
                         </div>
                         <p class="service-desc">Firewalls, network vulnerability audits, secure hardening, and malware cleanup.</p>
-                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                        <div class="action-btn-group">
+                            <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                        </div>
                     </div>
 
                     <div class="service-card">
@@ -326,7 +349,9 @@
                             <span class="service-price">$100</span>
                         </div>
                         <p class="service-desc">Home network optimization, WiFi diagnostic fixes, and core hardware setup.</p>
-                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                        <div class="action-btn-group">
+                            <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                        </div>
                     </div>
 
                     <div class="service-card">
@@ -335,7 +360,10 @@
                             <span class="service-price">$45</span>
                         </div>
                         <p class="service-desc">ATS-friendly resume restructuring, professional CVs, and custom branding.</p>
-                        <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                        <div class="action-btn-group">
+                            <a href="form.html" target="_blank" class="action-btn">INITIATE REQUEST -></a>
+                            <a href="career.html" class="action-btn action-btn-alt">VIEW CAREER MATERIALS -></a>
+                        </div>
                     </div>
 
                 </div>

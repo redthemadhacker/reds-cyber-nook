@@ -1,6 +1,8 @@
 # Red's Cyber Nook 💻🛡️
 
-Personal portfolio and terminal-inspired showcase for **Amari James (SE, CySA, LA)**. Highlights engineering credentials, security background, enterprise systems experience, live active projects, and direct contact avenues.
+⚠️ Notice: This project has been redesigned and split into two distinct sites.
+
+Check out the redthemadhacker and allnyteallbyte repositories to view the updated personal portfolio and terminal-inspired showcase for Amari James (SE, CySA, LA). The new sites highlight current engineering credentials, security background, enterprise systems experience, live active projects, and direct contact avenues.
 
 ---
 
